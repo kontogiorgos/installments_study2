@@ -1,0 +1,158 @@
+.container{
+    max-width: 1600px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+a{
+    text-decoration: none;
+}
+
+i.arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+
+.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+.img.center{
+    display: block;
+    min-width: 50px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input[id^="input-"]{
+    width: 85%;
+}
+
+.remove-input{
+    max-width: 5px;
+    margin-left: 5px;
+}
+
+.spacer{
+    height: 25px;
+    width: 100%;
+}
+
+label.config{
+    min-width: 175px;
+    max-width: 250px;
+    padding-top: 15px;
+}
+
+.shape-select label{
+    padding-right: 3px;
+}
+
+label{
+    display: inline-block;
+}
+
+label.counter{
+    float: right;
+}
+
+.min-height{
+    padding-bottom: 25px;
+    padding-top: 25px;
+}
+
+canvas{
+    border:1px solid darkgray;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 15px;;
+    margin-left: 0px;
+}
+
+canvas.center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+canvas.snapshot{
+    margin-bottom: 30px;
+}
+
+.with-margin{
+    margin: 15px;
+}
+
+b{
+    margin-left: 15px;
+}
+
+h6{
+    display: inline-block;
+    font-size: 1.9rem;
+    margin-right: 15px;
+}
+
+.toggle.btn{
+    margin-left: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+    float: right;
+}
+
+button{
+    padding: 0 15px;
+}
+
+.complexity-container button{
+    float: right;
+}
+
+dialog::backdrop{
+	background: rgba(255, 255, 255, .85);
+}
+
+#questionnaire::backdrop{
+	background: rgba(255, 255, 255, .25);
+}
+
+#questionnaire{
+	position:absolute;
+	left: 600px;
+	right: 0;
+}
+
+#progress_bg{
+	width:100%;
+	background-color:gainsboro;
+}
+
+#progress_bar{
+	width:0%;
+	background-color:darkgrey;
+	text-align: center;
+	line-height: 30px;
+	color:white;
+}
+
+
+#timer{
+	padding-right: 10px;
+	padding-left: 10px;
+	float:right;
+}
+
+#correct_counter{
+	padding-right: 10px;
+	padding-left: 10px;
+	float:right;
+}

@@ -1,0 +1,32 @@
+-Print labels on what objects and with expansions and conditions and save to txt, log other data too
+-Mean and std choice of time can be interrupted if the subject asks a (tell-me-more) question (visualise/log how many times pressed)
+-Define/log current state of interaction
+-They can ask for repeat or just let them do mistake, users were not able to repeat in study 1, as it has no adaptive behaviour, but in study 2 they can (design repeat behaviour), have repetitions if nothing happens for a while or if the participant requests
+-Punish them if they click many times or ask tell-me-more many times, they can only do one mistake, otherwise they start a new trial or pay them less
+-When a wrong action is happening do not say it was wrong but do an expansion (or say "no... [expansion]") or visualise wrong
+-Design initial chat dialogue
+-Have an animation first to rotate the piece and then place it on the grid and show where with colour
+-Use other elephant example to do a test at beginning of interaction
+-Tell them the robot is training to work at IKEA to help people assemble their furniture or something similar
+-The system only helps with dialogue to pick up the right pentomino, it then places it to the elephant, show solution of elephant and verbalise when things are placed
+-Say something to check all is working and start task, introduce experiment with voice
+-The robot removes from the list expansions that have already been issued and randomly chooses one (visualise that in paper and in video)
+-Gather per 1s mouse mean and std (and other features) and log them and also use for ML, track mouse movements and analyse but only use clicks for system actions (if wrong click, system should say)
+-Define reactions to human actions (correct, wrong, no action - 10sec (repeat))
+-Log user actions and also correct/wrong actions, robot speech and also robot instruction and expansion id and user mouse
+-Like Hough 2017 create a robot state machine where it transitions from one state to another according to what the user is doing
+-Make an autonomous system and look at Kory-Westlund thesis section 9 for autonomous behaviours and like Skantze 2013
+-Put tell-me-more button (tell-me-more button only appears when the robot stops talking, penalise them for using it more, log how often and how long after they press it)
+-If they do mistake do not place object but repeat or add attributes
+-“You will have to excuse me being a little slow, I am still learning how to speak and interact with humans”, explain to humans when it does not understand to show them why modelling language is hard and what are the drawbacks
+-On baseline condition do not stop talking and give all instalments, they can click next when it stops speaking, or maybe let them interrupt the system on the baseline condition
+-Maybe also compare feedback like Mitev (not that one, yes that one), compare to condition that only gives 1 instalment or all instalments
+-Check and update export file after task
+-Have a task abortion button in case there is a deadlock
+-Reimplement other elephants
+-Use space key or a real button for in person study to not interfere with the mouse movements when they want to “tell-me-more’
+-Punish them for pressing tell-me-more too much, or count it so they do not need to push it as much
+-Make en estimation of uncertainty in real time and visualise it to detect whether to give another instalment (decide also on when is the last time spoke before issuing a new one (more or less on the predetermined pause)
+-Have the Tell-Me-More button always available therefore we know if they press it they truly need it but in some conditions the system is proactive
+-Check how to train model in sklearn and use it in javascript (sklearn-porter) in real time or send to python (maybe using REST) in server
+-Do incremental generation of instructions and visualise in real time uncertainty detection like Gabriel incremental ASR paper and video
