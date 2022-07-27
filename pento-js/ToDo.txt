@@ -30,3 +30,67 @@
 -Have the Tell-Me-More button always available therefore we know if they press it they truly need it but in some conditions the system is proactive
 -Check how to train model in sklearn and use it in javascript (sklearn-porter) in real time or send to python (maybe using REST) in server
 -Do incremental generation of instructions and visualise in real time uncertainty detection like Gabriel incremental ASR paper and video
+-Mute speech if we want to stop it (when user chooses one) or keep it playing
+-Create several versions of the system with combinations of maps and condition, check elephants to get correct order for tasks (each letter has its own map, each elephant has its own 12 mp3 files)
+-Play instalments and pause them for tell-me-more condition until button pressed, same with mouse depending on mouse movements
+-Check if I should run the study online
+-Play all conditions and maps to check the instalments are correct
+-Log instalment and pause timing from js and also filler (mp3 duration for timing)
+-If it does a filled pause and the user clicked then say yeah correct or no not correct, generate filler anyway and then decide what to do (interrupt instruction to use yes/no)
+-Test sequence of letters for every board and test the synthesis is correct (have a variable to indicate which board, each letter has its own board)
+-Generate new intro.mp3 for task instructions and synthesise fillers separately
+
+
+
+# Decide on pause duration
+pause_mean = 1.47248495 #Jana
+pause_std = 2.216527706 #Jana
+pause = -1
+while pause < 0 or pause > (pause_mean*2):
+    pause = np.random.normal(pause_mean, pause_std, 1)
+
+# Get filler prob (22%)
+filler_num = randrange(100) #smaller than 11% pick uh, smaller than 22% pick uhm, bigger pick no filler
+if filler_num < 11:
+    if pause <= 0.300: #uh lasts 300ms
+        uh_break = 0
+    else:
+        uh_break = ((pause - 0.300) / 2) * 1000
+        uh_break = int(math.modf(uh_break[0])[1])
+    utt_list[s] = " <break time='" + str(uh_break) + "ms'/><phoneme alphabet='ipa' ph='/}h/'>uh</phoneme><break time='" + str(uh_break) + "ms'/>"
+elif filler_num >= 11 and filler_num <= 22:
+    if pause <= 0.430: #uhm lasts 430ms
+        uhm_break = 0
+    else:
+        uhm_break = ((pause - 0.430) / 2) * 1000
+        uhm_break = int(math.modf(uhm_break[0])[1])
+    utt_list[s] = " <break time='" + str(uhm_break) + "ms'/><phoneme alphabet='ipa' ph='/@@m/'>uhm</phoneme><break time='" + str(uhm_break) + "ms'/>"
+else:
+    if pause <= 0.750: #'?' lasts 750ms
+        pause = pause * 1000
+        pause = int(math.modf(pause[0])[1])
+        utt_list[s] = " <break time='" + str(pause) + "ms'/>"
+    else:
+        pause = (pause - 0.750) * 1000 #remove time for '?'
+        pause = int(math.modf(pause[0])[1])
+        utt_list[s] = "? <break time='" + str(pause) + "ms'/>"
+
+
+
+<speak><prosody rate="90%">
+so let's get started?
+<break time='1500ms'/>
+I am going to instruct you on what pentomino pieces to pick from the board on your left
+<break time='350ms'/><phoneme alphabet="ipa" ph="/@@m/">uhm</phoneme><break time='350ms'/>
+I will then place the pentominoes you pick on the elephant structure on your right
+<break time='400ms'/>
+just click on the object you think is right?
+<break time='150ms'/><phoneme alphabet="ipa" ph="/@@m/">uhm</phoneme><break time='150ms'/>
+also look at the elephant to see what we are building
+<break time='700ms'/>
+keep in mind that sometimes the objects may need to be rotated or flipped
+<break time='300ms'/><phoneme alphabet="ipa" ph="/}h/">uh</phoneme><break time='300ms'/>
+it is also important that you listen to the instructions carefully in order to answer to the questions right after
+<break time='1000ms'/>
+for now just pick any object from the board
+</prosody></speak>
