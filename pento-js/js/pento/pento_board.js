@@ -79,20 +79,19 @@ $(document).ready(function () {
 			this.setup_canvas();
 			this.draw();
 		}
-		
+
 		get canvas() {
 			return this.pento_canvas_ref[0];
 		}
-		
 
 		get shapes() {
 			return this.pento_shapes;
 		}
-		
+
 		get actions() {
 			return this._actions;
 		}
-		
+
 		/**
 		 * @return shape with given name
 		 */
@@ -100,22 +99,20 @@ $(document).ready(function () {
 			return this.shapes[name];
 		}
 
-		
-		
 		// functions to access grid borders
-		
+
 		left_edge() {
 			return this.pento_grid_x
 		}
-		
+
 		right_edge() {
 			return this.pento_grid_x + this.width
 		}
-		
+
 		upper_edge() {
 			return this.pento_grid_y
 		}
-		
+
 		lower_edge() {
 			return this.pento_grid_y + this.height
 		}
@@ -141,7 +138,6 @@ $(document).ready(function () {
 			$(this.canvas_id).prop('height', this.height);
 		}
 
-
 		set(key, value) {
 			switch (key) {
 				case 'readonly':
@@ -159,7 +155,7 @@ $(document).ready(function () {
 					console.log('unknown config option: ' + key);
 			}
 		}
-		
+
 		/**
 		 * Draw the canvas contents to the screen
 		 */
@@ -210,7 +206,7 @@ $(document).ready(function () {
 			}
 			this.pento_canvas_ref.drawLayers();
 		}
-		
+
 		/**
 		 * Draw or remove the grid.
 		 */
@@ -256,7 +252,7 @@ $(document).ready(function () {
 				}
 			}
 		}
-		
+
 		/**
 		 * Move shape to a grid square
 		 * @param {canvas layer representing shape} layer
@@ -271,10 +267,10 @@ $(document).ready(function () {
 			// lock shape on a grid square
 			new_x = Math.floor((new_x - this.pento_grid_x + layer.offsetX) / this.pento_block_size) * this.pento_block_size;
 			new_y = Math.floor((new_y - this.pento_grid_y + layer.offsetY) / this.pento_block_size) * this.pento_block_size;
-			
+
 			layer.x = new_x + this.pento_grid_x - layer.offsetX;
 			layer.y = new_y + this.pento_grid_y - layer.offsetY;
-			
+
 			this.pento_canvas_ref.drawLayers();
 		}
 
@@ -303,7 +299,7 @@ $(document).ready(function () {
 			}
 			return hits
 		}
-		
+
 		/**
 		 * Rotates the active shape by the given angle
 		 * @param {angle in degrees} angle
@@ -312,7 +308,7 @@ $(document).ready(function () {
 			this.pento_active_shape.rotate(angle);
 			this.pento_canvas_ref.drawLayers();
 		}
-		
+
 		/**
 		 * Remove a shape from canvas and internal structure.
 		 * @param {shape name or PentoShape object to remove} shape
@@ -334,7 +330,7 @@ $(document).ready(function () {
 				this.destroy_shape(shape);
 			}
 		}
-		
+
 		update_layer_pos(layer, new_x, new_y) {
 			this.pento_canvas_ref.setLayer(layer, {
 				x: new_x,
@@ -440,7 +436,7 @@ $(document).ready(function () {
 				}
 			});
 		}
-		
+
 		/**
 		 * Delete the arrows from the canvas.
 		 */
@@ -469,7 +465,7 @@ $(document).ready(function () {
 				this.pento_active_shape.shadowColor = 'transparent';
 			}
 		}
-		
+
 		/**
 		 * Move shape to foreground and highlight it
 		 * @param {PentoShape to set active} shape
@@ -490,7 +486,7 @@ $(document).ready(function () {
 			// drawing in the middle of the shape area
 			return [0, 0];
 		}
-		
+
 		/**
 		 * Place and draw a shape on the canvas.
 		 * {PentoShape to place} shape
@@ -663,7 +659,7 @@ $(document).ready(function () {
 		register_event_handler(handler) {
 			this.event_handlers.push(handler);
 		}
-		
+
 		/**
 		 * Pass event to event handlers
 		 * @param {info for event handlers} event_type
@@ -707,7 +703,7 @@ $(document).ready(function () {
 						sum_changes[1]['angle'] += change['angle'];
 					}
 				}
-				
+
 				if (sum_changes[1]['angle'] == 0) {
 					sum_changes = sum_changes.slice(0,1);
 				} else {
@@ -722,7 +718,7 @@ $(document).ready(function () {
 			}
 			return shapes;
 		}
-		
+
 				/**
 		 * @return factor to scale pieces from source JSON size to this board's size
 		 */
@@ -783,4 +779,3 @@ $(document).ready(function () {
 	};
 
 })
-

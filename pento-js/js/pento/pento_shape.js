@@ -30,7 +30,7 @@ $(document).ready(function () {
 			// conntected shapes
 			this.connected = [];
 		}
-		
+
 		/**
 		 * Returns true if the shape is currently
 		 * active and can be modified
@@ -46,7 +46,7 @@ $(document).ready(function () {
 		set_deactive() {
 			this.active = false;
 		}
-		
+
 		/**
 		 * Toggle colored highlighting of shape on and off
 		 * @param {highlight color} color
@@ -54,7 +54,7 @@ $(document).ready(function () {
 		set_highlight(color) {
 			this.highlight = color;
 		}
-		
+
 		remove_highlight() {
 			this.highlight = null;
 		}
@@ -62,10 +62,10 @@ $(document).ready(function () {
 		/**
 		 * Checks whether the shape is inside the bounding box or has overlaps (returns false if any part of the shape is
 		 * outside the bounding box)
-		 * @param {Bound Box x} bb_x 
-		 * @param {Bounding Box y} bb_y 
-		 * @param {Bounding Box Width} bb_width 
-		 * @param {Bounding Box Height} bb_height 
+		 * @param {Bound Box x} bb_x
+		 * @param {Bounding Box y} bb_y
+		 * @param {Bounding Box Width} bb_width
+		 * @param {Bounding Box Height} bb_height
 		 */
 		is_inside(bb_x, bb_y, bb_width, bb_height) {
 			var bounding_box = [bb_x, bb_y, bb_width, bb_height];
@@ -87,14 +87,14 @@ $(document).ready(function () {
 
 		/**
 		 * Checks whether these shapes are connected
-		 * @param {shape} other_shape 
+		 * @param {shape} other_shape
 		 */
 		is_connected(other_shape) {
 			return this.connected.indexOf(other_shape.name) != -1
 		}
 
 		/**
-		 * Checks whether this shape is connected to any other 
+		 * Checks whether this shape is connected to any other
 		 * shape
 		 */
 		has_connections() {
@@ -107,14 +107,14 @@ $(document).ready(function () {
 		get_internal_grid() {
 			return this._internal_grid
 		}
-		
+
 		/**
 		 * Return width of shape (number of horizontal blocks)
 		 */
 		get_grid_width() {
 			return this._internal_grid_size[0]
 		}
-		
+
 		/**
 		 * Return height of shape (number of vertical blocks)
 		 */
@@ -123,10 +123,10 @@ $(document).ready(function () {
 		}
 
 		/**
-		 * Estimates the relative position of the 
+		 * Estimates the relative position of the
 		 * other shape compared to this shape and
 		 * returns a direction of connection
-		 * @param {shape to connect to} other_shape 
+		 * @param {shape to connect to} other_shape
 		 */
 		get_direction(other_shape) {
 			var delta_x = other_shape.x - this.x;
@@ -147,7 +147,7 @@ $(document).ready(function () {
 
 		/**
 		 * Copy matrix
-		 * @param {Creates a deepcopy of a matrix} matrix 
+		 * @param {Creates a deepcopy of a matrix} matrix
 		 */
 		copy_matrix(matrix) {
 			var new_matrix = [];
@@ -161,10 +161,9 @@ $(document).ready(function () {
 			return new_matrix
 		}
 
-
 		/**
 		 * Copy and rotate matrix 90 degrees clockwise
-		 * @param {*} matrix 
+		 * @param {*} matrix
 		 */
 		copy_and_rotate(matrix) {
 			// copy
@@ -187,7 +186,7 @@ $(document).ready(function () {
 		/**
 		 * Returns the index of the first blocking column
 		 * from the right
-		 * @param {internal matrix} matrix 
+		 * @param {internal matrix} matrix
 		 */
 		get_right_fbc(matrix) {
 			for (var i = matrix.length - 1; i >= 0; i--) {
@@ -200,7 +199,7 @@ $(document).ready(function () {
 		/**
 		 * Retrieves the index of the first blocking column
 		 * from the left
-		 * @param {internal matrix} matrix 
+		 * @param {internal matrix} matrix
 		 */
 		get_left_fbc(matrix) {
 			for (var i = 0; i < matrix.length; i++) {
@@ -216,8 +215,8 @@ $(document).ready(function () {
 
 		/**
 		 * Connects to shapes
-		 * @param {shape to connect to} other_shape 
-		 * @param {direction of connection} direction 
+		 * @param {shape to connect to} other_shape
+		 * @param {direction of connection} direction
 		 */
 		align_and_connect(other_shape, direction) {
 			// get copy of matrix for inplace operations and rotate if necessary
@@ -266,10 +265,10 @@ $(document).ready(function () {
 		}
 
 		/**
-		 * Sets the value at (row, col) 
-		 * @param {row} row 
-		 * @param {col} col 
-		 * @param {value for cell} value 
+		 * Sets the value at (row, col)
+		 * @param {row} row
+		 * @param {col} col
+		 * @param {value for cell} value
 		 */
 		_set_grid_value(row, col, value) {
 			this._internal_grid[row][col] = value;
@@ -277,8 +276,8 @@ $(document).ready(function () {
 
 		/**
 		 * Retrieves value from (row, col)
-		 * @param {row} row 
-		 * @param {col} col 
+		 * @param {row} row
+		 * @param {col} col
 		 */
 		_get_grid_value(row, col) {
 			return this._internal_grid[row][col]
@@ -286,8 +285,8 @@ $(document).ready(function () {
 
 		/**
 		 * Marks the position of a block on the internal grid with 1
-		 * @param {x} block_x 
-		 * @param {y} block_y 
+		 * @param {x} block_x
+		 * @param {y} block_y
 		 */
 		_update_grid(block_x, block_y) {
 			var row = (block_y / this.block_size) + this._internal_grid_shifts[1];
@@ -296,8 +295,8 @@ $(document).ready(function () {
 		}
 
 		/**
-		 * Rolls back N steps of modifications done to the shape (except initial placement) 
-		 * @param {int} steps 
+		 * Rolls back N steps of modifications done to the shape (except initial placement)
+		 * @param {int} steps
 		 */
 		rollback(steps) {
 			if (this.changes.length > 0) {
@@ -310,7 +309,7 @@ $(document).ready(function () {
 
 		/**
 		 * Restores the state of the shape before the modification
-		 * @param {action object} action 
+		 * @param {action object} action
 		 */
 		undo_action(action) {
 			switch (action['name']) {
@@ -325,7 +324,7 @@ $(document).ready(function () {
 
 		/**
 		 * Returns the true angle for rotation
-		 * @param {degree} angle 
+		 * @param {degree} angle
 		 */
 		_get_true_angle(angle) {
 			var true_angle = (this.rotation + angle) % 360;
@@ -344,7 +343,7 @@ $(document).ready(function () {
 
 		/**
 		 * Rotates the shape by delta angle
-		 * @param {*} angle 
+		 * @param {*} angle
 		 */
 		rotate(angle, track) {
 			if (track != false) {
@@ -356,9 +355,9 @@ $(document).ready(function () {
 
 		/**
 		 * Moves shape to a fixed position
-		 * @param {x} x 
-		 * @param {y} y 
-		 * @param {if this action should be tracked (can't be undone otherwise)} track 
+		 * @param {x} x
+		 * @param {y} y
+		 * @param {if this action should be tracked (can't be undone otherwise)} track
 		 */
 		moveTo(x, y, track) {
 			if (track != false) {
@@ -415,8 +414,8 @@ $(document).ready(function () {
 		/**
 		 * Retrieve a matrix (top, right, bottom, left) which represents
 		 * adjacent blocks with 1 (0 if no block is adjacent on a side)
-		 * @param {block x} x 
-		 * @param {block y} y 
+		 * @param {block x} x
+		 * @param {block y} y
 		 */
 		get_adjacent_blocks(x, y) {
 			var row = Math.round(y / this.block_size) + this._internal_grid_shifts[1];
@@ -447,7 +446,7 @@ $(document).ready(function () {
 
 		/**
 		 * Adds a block to the shape if it's writable
-		 * @param {block object} block 
+		 * @param {block object} block
 		 */
 		add_block(block) {
 			if (this.writable) {
@@ -465,7 +464,7 @@ $(document).ready(function () {
 
 		/**
 		 * Checks whether the shapes hit each other
-		 * @param {shape to compare} other_shape 
+		 * @param {shape to compare} other_shape
 		 */
 		hits(other_shape) {
 			// calculate delta between shapes
@@ -488,7 +487,7 @@ $(document).ready(function () {
 
 		/**
 		 * Returns a deep copy of the shape with the new id assigned
-		 * @param {id} new_id 
+		 * @param {id} new_id
 		 */
 		copy(new_id) {
 			var shape_copy = document.pento_create_shape(new_id, this.x, this.y, this.type, this.color,
@@ -497,7 +496,7 @@ $(document).ready(function () {
 			shape_copy.height = this.height;
 			return shape_copy
 		}
-		
+
 		/**
 		 * Adapts the shape's coordinates to a differently sized board.
 		 * @param {new block size} block_size
@@ -534,8 +533,7 @@ $(document).ready(function () {
 		shape.add_block(block);
 	}
 
-
-	// draw F 
+	// draw F
 	this.pento_F = function (shape) {
 		// Draw blocks
 		for (var i = 0; i < 3; i++) {
@@ -773,7 +771,7 @@ $(document).ready(function () {
 				return;
 		}
 
-		// Important: Closing the shapes disabled editing and 
+		// Important: Closing the shapes disabled editing and
 		// calculates center point for rotations
 		new_shape.close();
 
@@ -784,4 +782,3 @@ $(document).ready(function () {
 		return new_shape
 	};
 })
-

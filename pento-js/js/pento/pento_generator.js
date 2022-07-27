@@ -49,7 +49,7 @@ $(document).ready(function () {
 		get_prefix() {
 			return this.prefix_log[this.prefix_log.length-1];
 		}
-		
+
 		/**
 		 * Updates the properties 'readonly' and 'showgrid' for both boards.
 		 */
@@ -165,7 +165,7 @@ $(document).ready(function () {
 					this.pento_board_initial.draw()
 					pento_generator_actions[random_shape.name].push(random_action);
 					this._fire_event(this.events[1], {'shape': random_shape, 'action': random_action, 'params': params});
-					
+
 				} else {
 					random_shape.rollback(1);
 					i -= 1;
@@ -174,7 +174,7 @@ $(document).ready(function () {
 
 			// target final
 			this._fire_event(this.events[2], {'index': i});
-			
+
 		}
 
 		/**
@@ -212,7 +212,7 @@ $(document).ready(function () {
 			var generated_shapes = [];
 			var r = 0;
 			var nshapes = this.config['all_selected_once'] ? pento_types.length : this.config['nshapes'];
-			
+
 			while (r < nshapes) {
 
 				// generate random type or use each type exactly once
@@ -236,7 +236,6 @@ $(document).ready(function () {
 				} else {
 					var do_mirror = false;
 				}
-
 
 				// create and place
 				var coords = this.pento_board_target.grid_cell_to_coordinates(rand_col, rand_row);

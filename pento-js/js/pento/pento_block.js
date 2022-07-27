@@ -107,7 +107,7 @@ $(document).ready(function () {
 
 		/**
 		 * Rotate the whole shape
-		 * @param {Angle of rotation in degrees} angle 
+		 * @param {Angle of rotation in degrees} angle
 		 */
 		rotate(delta_angle, new_angle) {
 			// move to center
@@ -128,7 +128,7 @@ $(document).ready(function () {
 			// store current rotation
 			this.rotation = new_angle;
 		}
-		
+
 		/**
 		 * Resizes the block and adapts its coordinates to match a new board size.
 		 * @param {new size} block_size
@@ -143,9 +143,9 @@ $(document).ready(function () {
 
 		/**
 		 * Calculates an overlap of two polygons using their vertices and the SAT method (Separating Axis Theorem)
-		 * @param {block for comparison} block 
-		 * @param {delta of shapes x coord} dx 
-		 * @param {delta of shapes y coord} dy 
+		 * @param {block for comparison} block
+		 * @param {delta of shapes x coord} dx
+		 * @param {delta of shapes y coord} dy
 		 */
 		hits(block, dx, dy) {
 			// create a copy of own vertices
@@ -222,4 +222,3 @@ $(document).ready(function () {
 		return new this.Block(x, y, block_size, block_size, color)
 	};
 })
-

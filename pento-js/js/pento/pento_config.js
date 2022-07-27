@@ -19,7 +19,7 @@ $(document).ready(function () {
 			return this.dict[key];
 		}
 	};
-	
+
 	/**
 	 * Class to store possible PentoShape colors, shapes and actions.
 	 */
@@ -45,7 +45,7 @@ $(document).ready(function () {
 				'#5CD6D6': 'turquoise',
 				'#FFB366': 'orange'
 			};
-			
+
 			this.board_size		= board_size;
 			this.n_blocks		= n_blocks;
 			this.block_size		= board_size / n_blocks;
@@ -79,4 +79,3 @@ $(document).ready(function () {
 		}
 	};
 })
-
