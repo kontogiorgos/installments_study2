@@ -1,3 +1,7 @@
+//Print labels on what objects and what instalments and save to txt, log other data too (define/log current state of interaction)
+//Mean and std choice of time can be interrupted if the subject asks a (tell-me-more) question (visualise/log how many times pressed)
+//have repetitions if nothing happens for a while or if the participant requests (design repeat behaviour)
+
 $(document).ready(function() {
 	// --- Boards ---
 	var WITH_GRID				= false;
