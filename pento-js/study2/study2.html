@@ -1,37 +1,3 @@
-<!--
-Punish them if they click many times or ask tell-me-more many times, they can only do one mistake, otherwise they start a new trial or pay them less, write number of tell-me-mores
-Put tell-me-more button (tell-me-more button only appears when the robot stops talking, penalise them for using it more, log how often and how long after they press it)
-Use space key or a real button for in person study to not interfere with the mouse movements when they want to “tell-me-more’
-Punish them for pressing tell-me-more too much, or count it so they do not need to push it as much
-Have the Tell-Me-More button always available therefore we know if they press it they truly need it but in some conditions the system is proactive
-Design initial chat dialogue (tell them the robot is training to work at IKEA to help people assemble their furniture or something similar), say something to check all is working and start task, introduce experiment with voice, “You will have to excuse me being a little slow, I am still learning how to speak and interact with humans”, explain to humans when it does not understand to show them why modelling language is hard and what are the drawbacks
-Have an animation first to rotate the piece and then place it on the grid and show where with colour (use other elephant example to do a test at beginning of interaction)
-Reimplement other elephants
-Make an estimation of uncertainty in real time and visualise it to detect whether to give another instalment (decide also on when to speak, get predetermined pause), do incremental generation of instructions and visualise in real time uncertainty detection like Gabriel incremental ASR paper and video
-Play all conditions and maps to check the instalments are correct
-Generate new intro.mp3 for task instructions and synthesise fillers separately
--->
-
-<!--
-<speak><prosody rate="90%">
-so let's get started?
-<break time='1500ms'/>
-I am going to instruct you on what pentomino pieces to pick from the board on your left
-<break time='350ms'/><phoneme alphabet="ipa" ph="/@@m/">uhm</phoneme><break time='350ms'/>
-I will then place the pentominoes you pick on the elephant structure on your right
-<break time='400ms'/>
-just click on the object you think is right?
-<break time='150ms'/><phoneme alphabet="ipa" ph="/@@m/">uhm</phoneme><break time='150ms'/>
-also look at the elephant to see what we are building
-<break time='700ms'/>
-keep in mind that sometimes the objects may need to be rotated or flipped
-<break time='300ms'/><phoneme alphabet="ipa" ph="/}h/">uh</phoneme><break time='300ms'/>
-it is also important that you listen to the instructions carefully in order to answer to the questions right after
-<break time='1000ms'/>
-for now just pick any object from the board
-</prosody></speak>
--->
-
 <!doctype html>
 
 <html lang="en">
@@ -71,6 +37,33 @@ for now just pick any object from the board
 		<div id="progress_bg">
 			<div id="progress_bar">0%</div>
 		</div>
+
+<!--
+Design initial chat dialogue (tell them the robot is training to work at IKEA to help people assemble their furniture or something similar), say something to check all is working and start task, introduce experiment with voice, “You will have to excuse me being a little slow, I am still learning how to speak and interact with humans”, explain to humans when it does not understand to show them why modelling language is hard and what are the drawbacks
+Have an animation first to rotate the piece and then place it on the grid and show where with colour (use other elephant example to do a test at beginning of interaction)
+Generate new intro.mp3 for task instructions and synthesise fillers separately
+Pay them more per pentomino
+-->
+
+<!--
+<speak><prosody rate="90%">
+so let's get started?
+<break time='1500ms'/>
+I am going to instruct you on what pentomino pieces to pick from the board on your left
+<break time='350ms'/><phoneme alphabet="ipa" ph="/@@m/">uhm</phoneme><break time='350ms'/>
+I will then place the pentominoes you pick on the elephant structure on your right
+<break time='400ms'/>
+just click on the object you think is right?
+<break time='150ms'/><phoneme alphabet="ipa" ph="/@@m/">uhm</phoneme><break time='150ms'/>
+also look at the elephant to see what we are building
+<break time='700ms'/>
+keep in mind that sometimes the objects may need to be rotated or flipped
+<break time='300ms'/><phoneme alphabet="ipa" ph="/}h/">uh</phoneme><break time='300ms'/>
+it is also important that you listen to the instructions carefully in order to answer to the questions right after
+<break time='1000ms'/>
+for now just pick any object from the board
+</prosody></speak>
+-->
 
 		<!-- Pop-ups -->
 		<!-- Welcome screen -->
@@ -157,6 +150,14 @@ for now just pick any object from the board
 			<br><br>
 			<button id="consent_done">Submit & Continue</button>
 		</dialog>
+
+<!--
+Play all conditions and maps to check the instalments are correct
+Punish them if they click tell-me-more many times, log number of tell-me-mores and timing
+Put tell-me-more button (tell-me-more button only appears (clickable) when the robot stops talking)
+Use space key or a real button for in person study to not interfere with the mouse movements when they want to “tell-me-more"
+Use a counter of tell-me-more so they do not push it as much
+-->
 
 		<!-- Start Questionnaire -->
 		<dialog id="start_questionnaire">
