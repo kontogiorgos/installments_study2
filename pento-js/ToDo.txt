@@ -1,8 +1,3 @@
--Say something to check all is working and start task, introduce experiment with voice
--The robot removes from the list expansions that have already been issued and randomly chooses one (visualise that in paper and in video)
--Gather per 1s mouse mean and std (and other features) and log them and also use for ML, track mouse movements and analyse but only use clicks for system actions (if wrong click, system should say)
--Define reactions to human actions (correct, wrong, no action - 10sec (repeat))
--Log user actions and also correct/wrong actions, robot speech and also robot instruction and expansion id and user mouse
 -Like Hough 2017 create a robot state machine where it transitions from one state to another according to what the user is doing
 -Make an autonomous system and look at Kory-Westlund thesis section 9 for autonomous behaviours and like Skantze 2013
 -Put tell-me-more button (tell-me-more button only appears when the robot stops talking, penalise them for using it more, log how often and how long after they press it)
@@ -29,6 +24,7 @@
 -Test sequence of letters for every board and test the synthesis is correct (have a variable to indicate which board, each letter has its own board)
 -Generate new intro.mp3 for task instructions and synthesise fillers separately
 -Make a csv file with bert and load it to take decision
+-Check ml.py for features and export models
 
 
 
