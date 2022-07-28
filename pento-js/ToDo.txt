@@ -1,9 +1,3 @@
--Like Hough 2017 create a robot state machine where it transitions from one state to another according to what the user is doing
--Make an autonomous system and look at Kory-Westlund thesis section 9 for autonomous behaviours and like Skantze 2013
--Put tell-me-more button (tell-me-more button only appears when the robot stops talking, penalise them for using it more, log how often and how long after they press it)
--If they do mistake do not place object but repeat or add attributes
--“You will have to excuse me being a little slow, I am still learning how to speak and interact with humans”, explain to humans when it does not understand to show them why modelling language is hard and what are the drawbacks
--On baseline condition do not stop talking and give all instalments, they can click next when it stops speaking, or maybe let them interrupt the system on the baseline condition
 -Maybe also compare feedback like Mitev (not that one, yes that one), compare to condition that only gives 1 instalment or all instalments
 -Check and update export file after task
 -Have a task abortion button in case there is a deadlock
