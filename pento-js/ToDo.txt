@@ -34,6 +34,7 @@
 -If it does a filled pause and the user clicked then say yeah correct or no not correct, generate filler anyway and then decide what to do (interrupt instruction to use yes/no)
 -Test sequence of letters for every board and test the synthesis is correct (have a variable to indicate which board, each letter has its own board)
 -Generate new intro.mp3 for task instructions and synthesise fillers separately
+-Make a csv file with bert and load it to take decision
 
 
 
