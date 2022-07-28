@@ -1,8 +1,3 @@
--Mute speech if we want to stop it (when user chooses one) or keep it playing
--Create several versions of the system with combinations of maps and condition, check elephants to get correct order for tasks (each letter has its own map, each elephant has its own 12 mp3 files)
--Play instalments and pause them for tell-me-more condition until button pressed, same with mouse depending on mouse movements
--Check if I should run the study online
--Play all conditions and maps to check the instalments are correct
 -Log instalment and pause timing from js and also filler (mp3 duration for timing)
 -If it does a filled pause and the user clicked then say yeah correct or no not correct, generate filler anyway and then decide what to do (interrupt instruction to use yes/no)
 -Test sequence of letters for every board and test the synthesis is correct (have a variable to indicate which board, each letter has its own board)
