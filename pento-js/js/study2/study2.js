@@ -2,6 +2,7 @@
 //Mean and std choice of time can be interrupted if the subject asks a (tell-me-more) question (visualise/log how many times pressed)
 //Have repetitions if nothing happens for a while or if the participant requests (design repeat behaviour)
 //Check and update export file after task
+//Check how to train model in sklearn and use it in javascript (sklearn-porter) in real time or send to python (maybe using REST) in server
 
 $(document).ready(function() {
 	// --- Boards ---

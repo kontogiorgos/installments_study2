@@ -1,8 +1,3 @@
--Punish them for pressing tell-me-more too much, or count it so they do not need to push it as much
--Make en estimation of uncertainty in real time and visualise it to detect whether to give another instalment (decide also on when is the last time spoke before issuing a new one (more or less on the predetermined pause)
--Have the Tell-Me-More button always available therefore we know if they press it they truly need it but in some conditions the system is proactive
--Check how to train model in sklearn and use it in javascript (sklearn-porter) in real time or send to python (maybe using REST) in server
--Do incremental generation of instructions and visualise in real time uncertainty detection like Gabriel incremental ASR paper and video
 -Mute speech if we want to stop it (when user chooses one) or keep it playing
 -Create several versions of the system with combinations of maps and condition, check elephants to get correct order for tasks (each letter has its own map, each elephant has its own 12 mp3 files)
 -Play instalments and pause them for tell-me-more condition until button pressed, same with mouse depending on mouse movements
