@@ -1,6 +1,7 @@
 //Print labels on what objects and what instalments and save to txt, log other data too (define/log current state of interaction), log user actions, robot speech and user mouse
 //Mean and std choice of time can be interrupted if the subject asks a (tell-me-more) question (visualise/log how many times pressed)
 //Have repetitions if nothing happens for a while or if the participant requests (design repeat behaviour)
+//Check and update export file after task
 
 $(document).ready(function() {
 	// --- Boards ---

@@ -1,8 +1,3 @@
--Maybe also compare feedback like Mitev (not that one, yes that one), compare to condition that only gives 1 instalment or all instalments
--Check and update export file after task
--Have a task abortion button in case there is a deadlock
--Reimplement other elephants
--Use space key or a real button for in person study to not interfere with the mouse movements when they want to “tell-me-more’
 -Punish them for pressing tell-me-more too much, or count it so they do not need to push it as much
 -Make en estimation of uncertainty in real time and visualise it to detect whether to give another instalment (decide also on when is the last time spoke before issuing a new one (more or less on the predetermined pause)
 -Have the Tell-Me-More button always available therefore we know if they press it they truly need it but in some conditions the system is proactive
