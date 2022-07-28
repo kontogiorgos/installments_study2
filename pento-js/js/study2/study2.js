@@ -9,6 +9,39 @@
 //Make a csv file with bert and load it to take decision
 //Check ml.py for features and export models
 
+// # Decide on pause duration
+// pause_mean = 1.47248495 #Jana
+// pause_std = 2.216527706 #Jana
+// pause = -1
+// while pause < 0 or pause > (pause_mean*2):
+//     pause = np.random.normal(pause_mean, pause_std, 1)
+//
+// # Get filler prob (22%)
+// filler_num = randrange(100) #smaller than 11% pick uh, smaller than 22% pick uhm, bigger pick no filler
+// if filler_num < 11:
+//     if pause <= 0.300: #uh lasts 300ms
+//         uh_break = 0
+//     else:
+//         uh_break = ((pause - 0.300) / 2) * 1000
+//         uh_break = int(math.modf(uh_break[0])[1])
+//     utt_list[s] = " <break time='" + str(uh_break) + "ms'/><phoneme alphabet='ipa' ph='/}h/'>uh</phoneme><break time='" + str(uh_break) + "ms'/>"
+// elif filler_num >= 11 and filler_num <= 22:
+//     if pause <= 0.430: #uhm lasts 430ms
+//         uhm_break = 0
+//     else:
+//         uhm_break = ((pause - 0.430) / 2) * 1000
+//         uhm_break = int(math.modf(uhm_break[0])[1])
+//     utt_list[s] = " <break time='" + str(uhm_break) + "ms'/><phoneme alphabet='ipa' ph='/@@m/'>uhm</phoneme><break time='" + str(uhm_break) + "ms'/>"
+// else:
+//     if pause <= 0.750: #'?' lasts 750ms
+//         pause = pause * 1000
+//         pause = int(math.modf(pause[0])[1])
+//         utt_list[s] = " <break time='" + str(pause) + "ms'/>"
+//     else:
+//         pause = (pause - 0.750) * 1000 #remove time for '?'
+//         pause = int(math.modf(pause[0])[1])
+//         utt_list[s] = "? <break time='" + str(pause) + "ms'/>"
+
 $(document).ready(function() {
 	// --- Boards ---
 	var WITH_GRID				= false;
