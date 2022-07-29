@@ -1,17 +1,11 @@
 <!doctype html>
-
 <html lang="en">
-
 <head>
 	<meta charset="utf-8">
-
 	<title>Pentomino Board</title>
-
 	<link rel="icon" href="../favicon.ico">
-
-	<meta name="description" content="Pentomino Study 1">
+	<meta name="description" content="Pentomino Study">
 	<meta name="author" content="clpresearch">
-
 	<link rel="stylesheet" href="../css/normalize.css">
 	<link rel="stylesheet" href="../css/skeleton.css">
 	<link rel="stylesheet" href="../css/dialog-polyfill.css">
@@ -20,7 +14,7 @@
 
 <body>
 	<div class="container">
-		<h5>Click the described piece on the left board! <div id="timer"><span style="color:red">00:00</span></div><div id="correct_counter">Correct: <span style="color:green">0</span> / 12</div></h5>
+		<h5>Select the described piece on the left board!<div id="timer"><span style="color:red">00:00</span></div><div id="correct_counter">Correct: <span style="color:green">0</span> / 12</div></h5>
 		<hr>
 		<div class="row">
 			<div class="eight columns">
@@ -30,8 +24,25 @@
 			<div class="four columns">
 				<canvas id="task_board" width="300" height="300" style="border:1px solid #000000;"></canvas>
 			</div>
+			<div id="elephant_num"></div>
+			<script>
+				document.getElementById("elephant_num").innerHTML = "Elephant: " + ELEPHANT;
+			</script>
+			<div id="condition_num"></div>
+			<script>
+				document.getElementById("condition_num").innerHTML = "Condition: " + CONDITION;
+			</script>
 			<div class="four columns">
-				<img id="elephant" src="../resources/img/elephant.png" alt="" />
+				<img id="elephant" src="../resources/img/elephant1/elephant0.png" alt="" />
+				<script>
+					if (ELEPHANT == 1) {
+  					document.getElementById("elephant").src = "../resources/img/elephant1/elephant0.png";
+					} else if (ELEPHANT == 2) {
+  					document.getElementById("elephant").src = "../resources/img/elephant2/elephant0.png";
+					} else {
+  					document.getElementById("elephant").src = "../resources/img/elephant3/elephant0.png";
+					}
+				</script>
 			</div>
 		</div>
 		<div id="progress_bg">
@@ -79,11 +90,6 @@ for now just pick any object from the board
 			*in collaboration with <strong>Hannah Pelikan</strong>, <strong>David Schlangen</strong> and <strong>Joakim Gustafson</strong>. <strong>Karla Friedrichs</strong> has contributed to this work.</p>
 			<br>
 			<button id="welcome_done">Continue</button>
-
-			<div id="participant_num"></div>
-			<script>
-				document.getElementById("participant_num").innerHTML = "Participant: " + PARTICIPANT;
-			</script>
 		</dialog>
 
 		<!-- Audio test -->
