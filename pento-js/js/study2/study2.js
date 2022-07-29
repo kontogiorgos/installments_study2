@@ -1,49 +1,3 @@
-//Print labels on what objects and what instalments and save to txt, log other data too (define/log current state of interaction), log user actions, robot speech and user mouse
-//Mean and std choice of time can be interrupted if the subject asks a (tell-me-more) question (visualise/log how many times pressed)
-//Have repetitions if nothing happens for a while or if the participant requests (design repeat behaviour)
-//Check and update export file after task
-//Check how to train model in sklearn and use it in javascript (sklearn-porter) in real time or send to python (maybe using REST) in server
-//Mute speech if we want to stop it (when user chooses one) or keep it playing, play instalments and pause them for tell-me-more condition until button pressed, same with mouse depending on mouse movements
-//Log instalment and pause timings from js and also filler (mp3 duration for timing)
-//If it does a filled pause and the user clicked then say yeah correct or no not correct, generate filler anyway and then decide what to do (interrupt instruction to use yes/no)
-//Make a csv file with bert and load it to take decision
-//Check ml.py for features and export models
-//Reimplement other elephants
-//Make an estimation of uncertainty in real time and visualise it to detect whether to give another instalment (decide also on when to speak, get predetermined pause), do incremental generation of instructions and visualise in real time uncertainty detection like Gabriel incremental ASR paper and video
-
-// # Decide on pause duration
-// pause_mean = 1.47248495 #Jana
-// pause_std = 2.216527706 #Jana
-// pause = -1
-// while pause < 0 or pause > (pause_mean*2):
-//     pause = np.random.normal(pause_mean, pause_std, 1)
-//
-// # Get filler prob (22%)
-// filler_num = randrange(100) #smaller than 11% pick uh, smaller than 22% pick uhm, bigger pick no filler
-// if filler_num < 11:
-//     if pause <= 0.300: #uh lasts 300ms
-//         uh_break = 0
-//     else:
-//         uh_break = ((pause - 0.300) / 2) * 1000
-//         uh_break = int(math.modf(uh_break[0])[1])
-//     utt_list[s] = " <break time='" + str(uh_break) + "ms'/><phoneme alphabet='ipa' ph='/}h/'>uh</phoneme><break time='" + str(uh_break) + "ms'/>"
-// elif filler_num >= 11 and filler_num <= 22:
-//     if pause <= 0.430: #uhm lasts 430ms
-//         uhm_break = 0
-//     else:
-//         uhm_break = ((pause - 0.430) / 2) * 1000
-//         uhm_break = int(math.modf(uhm_break[0])[1])
-//     utt_list[s] = " <break time='" + str(uhm_break) + "ms'/><phoneme alphabet='ipa' ph='/@@m/'>uhm</phoneme><break time='" + str(uhm_break) + "ms'/>"
-// else:
-//     if pause <= 0.750: #'?' lasts 750ms
-//         pause = pause * 1000
-//         pause = int(math.modf(pause[0])[1])
-//         utt_list[s] = " <break time='" + str(pause) + "ms'/>"
-//     else:
-//         pause = (pause - 0.750) * 1000 #remove time for '?'
-//         pause = int(math.modf(pause[0])[1])
-//         utt_list[s] = "? <break time='" + str(pause) + "ms'/>"
-
 $(document).ready(function() {
 	// --- Boards ---
 	var WITH_GRID				= false;
@@ -51,6 +5,8 @@ $(document).ready(function() {
 	var TASK_BOARD_NAME			= 'task_board';
 	var elephant_c = 0;
 	var START_QUEST = 1;
+
+//Reimplement other elephants
 
 	var FILES					= ['../resources/tasks/start.json',
 								   '../resources/tasks/z.json',
@@ -82,6 +38,8 @@ $(document).ready(function() {
 	function sleep(ms) {
 		return new Promise(resolve => setTimeout(resolve, ms));
 	}
+
+//Print labels on what objects and what instalments and save to txt, log other data too (define/log current state of interaction), log user actions, robot speech and user mouse
 
 	// --- Mouse tracking at mouse move ---
 	// Browsers seem to use variables layerX/layerY differently. For consistent
@@ -316,6 +274,50 @@ $(document).ready(function() {
 			document.open_popup(consent);
 		}
 	});
+
+//Mean and std choice of time can be interrupted if the subject asks a (tell-me-more) question (visualise/log how many times pressed)
+//Have repetitions if nothing happens for a while or if the participant requests (design repeat behaviour)
+//Check and update export file after task
+//Check how to train model in sklearn and use it in javascript (sklearn-porter) in real time or send to python (maybe using REST) in server
+//Mute speech if we want to stop it (when user chooses one) or keep it playing, play instalments and pause them for tell-me-more condition until button pressed, same with mouse depending on mouse movements
+//Log instalment and pause timings from js and also filler (mp3 duration for timing)
+//If it does a filled pause and the user clicked then say yeah correct or no not correct, generate filler anyway and then decide what to do (interrupt instruction to use yes/no)
+//Make a csv file with bert (with actual instalments) and load it to take decision
+//Check ml.py for features and export models
+//Make an estimation of uncertainty in real time and visualise it to detect whether to give another instalment (decide also on when to speak, get predetermined pause), do incremental generation of instructions and visualise in real time uncertainty detection like Gabriel incremental ASR paper and video
+
+// # Decide on pause duration
+// pause_mean = 1.47248495 #Jana
+// pause_std = 2.216527706 #Jana
+// pause = -1
+// while pause < 0 or pause > (pause_mean*2):
+//     pause = np.random.normal(pause_mean, pause_std, 1)
+//
+// # Get filler prob (22%)
+// filler_num = randrange(100) #smaller than 11% pick uh, smaller than 22% pick uhm, bigger pick no filler
+// if filler_num < 11:
+//     if pause <= 0.300: #uh lasts 300ms
+//         uh_break = 0
+//     else:
+//         uh_break = ((pause - 0.300) / 2) * 1000
+//         uh_break = int(math.modf(uh_break[0])[1])
+//     utt_list[s] = " <break time='" + str(uh_break) + "ms'/><phoneme alphabet='ipa' ph='/}h/'>uh</phoneme><break time='" + str(uh_break) + "ms'/>"
+// elif filler_num >= 11 and filler_num <= 22:
+//     if pause <= 0.430: #uhm lasts 430ms
+//         uhm_break = 0
+//     else:
+//         uhm_break = ((pause - 0.430) / 2) * 1000
+//         uhm_break = int(math.modf(uhm_break[0])[1])
+//     utt_list[s] = " <break time='" + str(uhm_break) + "ms'/><phoneme alphabet='ipa' ph='/@@m/'>uhm</phoneme><break time='" + str(uhm_break) + "ms'/>"
+// else:
+//     if pause <= 0.750: #'?' lasts 750ms
+//         pause = pause * 1000
+//         pause = int(math.modf(pause[0])[1])
+//         utt_list[s] = " <break time='" + str(pause) + "ms'/>"
+//     else:
+//         pause = (pause - 0.750) * 1000 #remove time for '?'
+//         pause = int(math.modf(pause[0])[1])
+//         utt_list[s] = "? <break time='" + str(pause) + "ms'/>"
 
 	// consent given, start first task and timer
 	$('#consent_done').click(function() {
