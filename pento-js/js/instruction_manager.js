@@ -15,19 +15,19 @@ $(document).ready(function() {
 		 * @param {board to represent task} task_board
 		 */
 		constructor(selection_board, task_board, track_interval=200) {
-			this.selection_board		= selection_board;
-			this.task_board 			= task_board;
+			this.selection_board = selection_board;
+			this.task_board = task_board;
 			// for each task and each instruction, log mouse movement, time, selected piece
-			this.follower_data 			= {};
+			this.follower_data = {};
 			this.task_name; // name of current task (e.g. file name)
 			// for current instruction
 			this.shape; // shape name
 			this.instruction; // audio of current instruction
-			this.current_start_time 	= Date.now();
+			this.current_start_time = Date.now();
 			this.track_id; // interval id if tracking is running
-			this.track_interval			= track_interval; // how often is mouse position checked (milliseconds)
+			this.track_interval	= track_interval; // how often is mouse position checked (milliseconds)
 			this.current_mouse_movement = [];
-			this.correct_counter		= 0; // number of correct guesses by participant
+			this.correct_counter = 0; // number of correct guesses by participant
 		}
 
 		/**
@@ -64,11 +64,11 @@ $(document).ready(function() {
 					'target_y': Math.floor(target.y * this.selection_board.scale_to_source_size())
 				}, 'task');
 				if (audio) {
-					// get audio for instruction and play it
-					// remove '#' from shape name to get file name
+					// get audio for instruction and play it, remove '#' from shape name to get file name
 					let instr_file = '../resources/audio/start.mp3';
 					if (START == 0) {
-						instr_file = `../resources/audio/p/${PARTICIPANT}/${this.shape.slice(0,2)}${this.shape.slice(3)}.mp3`;
+						// start with installment 0 (then add pause and installment 1 and then monitor user)
+						instr_file = `../resources/audio/study2/${ELEPHANT}/${this.shape.slice(0,1)}/0.mp3`;
 					}
 					this.instruction = new Audio(instr_file);
 					// start instruction as soon as audio is loaded sufficiently
@@ -154,7 +154,8 @@ $(document).ready(function() {
 		 * Play an example audiofile
 		 */
 		audiotest() {
-			let test_file = '../resources/audio/intro.mp3';
+//FIX FOR ALL
+			let test_file = '../resources/audio/intro_kevin.mp3';
 			let test_audio = new Audio(test_file);
 			test_audio.oncanplaythrough = (event) => {test_audio.play();};
 		}

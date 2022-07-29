@@ -359,7 +359,8 @@ $(document).ready(function() {
 		} else if (!follow_agent) {
 			alert('Please select one of the options');
 		} else {
-			document.instruction_manager.add_info('participant', PARTICIPANT);
+//FIX PARTICIPANT
+			//document.instruction_manager.add_info('participant', PARTICIPANT);
 			document.instruction_manager.add_info('browser_os_info', window.navigator.userAgent);
 			document.instruction_manager.add_info('name', name);
 			document.instruction_manager.add_info('email', email);
@@ -398,7 +399,8 @@ $(document).ready(function() {
 		var tasks_remaining = loadNewFile();
 
 		// update elephant image
-		document.getElementById('elephant').src='../resources/img/elephant'+elephant_c+'.png';
+//FIX for all
+		document.getElementById('elephant').src='../resources/img/elephant1/elephant'+elephant_c+'.png';
 		elephant_c = elephant_c + 1;
 	})
 
@@ -461,7 +463,8 @@ $(document).ready(function() {
 			var tasks_remaining = loadNewFile();
 
 			// update elephant image
-			document.getElementById('elephant').src='../resources/img/elephant'+elephant_c+'.png';
+//FIX FOR ALL
+			document.getElementById('elephant').src='../resources/img/elephant1/elephant'+elephant_c+'.png';
 			elephant_c = elephant_c + 1;
 
 			// finish the run
