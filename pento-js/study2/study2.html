@@ -65,33 +65,10 @@
 			<button id="welcome_done">Continue</button>
 		</dialog>
 
-<!--
-Design 3 initial chat dialogues (tell them the robot is training to help people assemble in their everyday tasks or something similar), “You will have to excuse me being a little slow, I am still learning how to speak and interact with humans”, explain to humans why modelling language is hard and what are the drawbacks
-Generate new intro.mp3 for task instructions and synthesise fillers separately
-Pay them more per correct pentomino
--->
-
-<!--
-<speak><prosody rate="90%">
-so let's get started?
-<break time='1500ms'/>
-I am going to instruct you on what pentomino pieces to pick from the board on your left
-<break time='350ms'/><phoneme alphabet="ipa" ph="/@@m/">uhm</phoneme><break time='350ms'/>
-I will then place the pentominoes you pick on the elephant structure on your right
-<break time='400ms'/>
-just click on the object you think is right?
-<break time='150ms'/><phoneme alphabet="ipa" ph="/@@m/">uhm</phoneme><break time='150ms'/>
-also look at the elephant to see what we are building
-<break time='700ms'/>
-keep in mind that sometimes the objects may need to be rotated or flipped
-<break time='300ms'/><phoneme alphabet="ipa" ph="/}h/">uh</phoneme><break time='300ms'/>
-it is also important that you listen to the instructions carefully in order to answer to the questions right after
-<break time='1000ms'/>
-for now just pick any object from the board
-</prosody></speak>
--->
-
 		<!-- Audio test -->
+		<!-- <speak><prosody rate="90%">
+			Hi there! I'm Peter! I am looking forward to working with you today. I am currently training to help people in their everyday tasks. You will have to excuse me for being a little slow, I am still learning how to speak and interact with humans. Please find a quiet spot, so you can concentrate on what you hear. After a short consent form, I will help you pick up some Pentomino pieces. But first, please listen to the following audio segment and type the spoken sentence on the text box below.
+		</prosody></speak> -->
 		<dialog id="audiotest">
 			<h2>Mathew is speaking...</h2>
 			<p>Can you hear Mathew? You will need to follow spoken instructions. Try to find a quiet place where you won't be interrupted.</p>
@@ -165,6 +142,25 @@ Use a counter of tell-me-more so they do not push it as much
 Use other elephant example to do a test at beginning of interaction
 Have an animation first to place the piece on the grid and show where with colour
 -->
+
+		<!--
+		<speak><prosody rate="90%">
+		so let's get started?
+		<break time='1000ms'/>
+		I am going to instruct you on what pentomino pieces to pick from the board on your left
+		<break time='350ms'/><phoneme alphabet="ipa" ph="/@@m/">uhm</phoneme><break time='350ms'/>
+		I will then place the pentominoes you pick on the elephant structure on your right
+		<break time='400ms'/>
+		just click on the object you think is right.
+		<break time='150ms'/><phoneme alphabet="ipa" ph="/@@m/">uhm</phoneme><break time='150ms'/>
+		also look at the elephant to see what we are building
+		<break time='700ms'/>
+		keep in mind that sometimes the objects may need to be rotated or flipped.
+		it is also important that you listen to the instructions carefully in order to answer the questions right after
+		<break time='1000ms'/>
+		for now just pick any object from the board
+		</prosody></speak>
+	-->
 
 		<!-- Start Questionnaire -->
 		<dialog id="start_questionnaire">
