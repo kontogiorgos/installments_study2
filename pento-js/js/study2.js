@@ -1,26 +1,55 @@
 $(document).ready(function() {
 	// --- Boards ---
-	var WITH_GRID				= false;
-	var SELECTION_BOARD_NAME	= 'selection_board';
-	var TASK_BOARD_NAME			= 'task_board';
+	var WITH_GRID	= false;
+	var SELECTION_BOARD_NAME = 'selection_board';
+	var TASK_BOARD_NAME	= 'task_board';
+	var elephant = 0;
 	var elephant_c = 0;
 	var START_QUEST = 1;
 
-//Reimplement other elephants
-
-	var FILES					= ['../resources/tasks/start.json',
-								   '../resources/tasks/z.json',
-								   '../resources/tasks/l.json',
-								   '../resources/tasks/n.json',
-								   '../resources/tasks/v.json',
-								   '../resources/tasks/t.json',
-								   '../resources/tasks/y.json',
-								   '../resources/tasks/w.json',
-								   '../resources/tasks/x.json',
-								   '../resources/tasks/f.json',
-								   '../resources/tasks/u.json',
-								   '../resources/tasks/p.json',
-								   '../resources/tasks/i.json']
+	if (ELEPHANT == 1) {
+		var FILES	= ['../resources/tasks/start.json',
+								 '../resources/tasks/z.json',
+								 '../resources/tasks/l.json',
+								 '../resources/tasks/n.json',
+								 '../resources/tasks/v.json',
+								 '../resources/tasks/t.json',
+								 '../resources/tasks/y.json',
+								 '../resources/tasks/w.json',
+								 '../resources/tasks/x.json',
+								 '../resources/tasks/f.json',
+								 '../resources/tasks/u.json',
+								 '../resources/tasks/p.json',
+								 '../resources/tasks/i.json']
+	} else if (ELEPHANT == 2) {
+		var FILES	= ['../resources/tasks/start.json',
+								 '../resources/tasks/u.json',
+								 '../resources/tasks/v.json',
+								 '../resources/tasks/x.json',
+								 '../resources/tasks/y.json',
+								 '../resources/tasks/f.json',
+								 '../resources/tasks/i.json',
+								 '../resources/tasks/n.json',
+								 '../resources/tasks/p.json',
+								 '../resources/tasks/z.json',
+								 '../resources/tasks/w.json',
+								 '../resources/tasks/t.json',
+								 '../resources/tasks/l.json']
+	} else {
+		var FILES	= ['../resources/tasks/start.json',
+								 '../resources/tasks/w.json',
+								 '../resources/tasks/l.json',
+								 '../resources/tasks/t.json',
+								 '../resources/tasks/z.json',
+								 '../resources/tasks/p.json',
+								 '../resources/tasks/y.json',
+								 '../resources/tasks/f.json',
+								 '../resources/tasks/n.json',
+								 '../resources/tasks/i.json',
+								 '../resources/tasks/v.json',
+								 '../resources/tasks/x.json',
+								 '../resources/tasks/u.json']
+	}
 
 	var current_file = 0; // increment as tasks are loaded
 

@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
 	/**
 	 * Class to generate instructions and collect data of the task following process.
 	 *
