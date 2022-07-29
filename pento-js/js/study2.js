@@ -68,13 +68,9 @@ $(document).ready(function() {
 		return new Promise(resolve => setTimeout(resolve, ms));
 	}
 
-//Print labels on what objects and what instalments and save to txt, log other data too (define/log current state of interaction), log user actions, robot speech and user mouse
-
 	// --- Mouse tracking at mouse move ---
-	// Browsers seem to use variables layerX/layerY differently. For consistent
-	// coordinates, pageX/pageY is now used, but this requires the total top/left
-	// offset of the canvas from the page
-	this.mouse_pos			= {x: -1, y: -1};
+	// Browsers seem to use variables layerX/layerY differently. For consistent coordinates, pageX/pageY is now used, but this requires the total top/left offset of the canvas from the page
+	this.mouse_pos = {x: -1, y: -1};
 	var canvas_offset_top	= getTotalOffsetTop(this.selection_board.canvas);
 	var	canvas_offset_left	= getTotalOffsetLeft(this.selection_board.canvas);
 
@@ -224,13 +220,11 @@ $(document).ready(function() {
 	var selection_handler = {
 		handle: function(event) {
 			if (event.type == 'shape_selected')
-				// task board will check whether correct shape was selected
-				// and make correct pieces visible on the task board
+				// task board will check whether correct shape was selected and make correct pieces visible on the task board
 				if (document.instruction_manager) {
 					document.instruction_manager.complete_instruction(event.object_id);
 					document.updateCorrectCounter();
-					// Try to give new instruction, is task is already finished,
-					// show questionnaire
+					// Try to give new instruction, is task is already finished, show questionnaire
 					if (!document.instruction_manager.generate_instruction()) {
 						// make selection_board read-only
 						document.selection_board.pento_read_only = true;
@@ -314,6 +308,7 @@ $(document).ready(function() {
 //Make a csv file with bert (with actual instalments) and load it to take decision
 //Check ml.py for features and export models
 //Make an estimation of uncertainty in real time and visualise it to detect whether to give another instalment (decide also on when to speak, get predetermined pause), do incremental generation of instructions and visualise in real time uncertainty detection like Gabriel incremental ASR paper and video
+//Print labels on what objects and what instalments and save to txt, log other data too (define/log current state of interaction), log user actions, robot speech and user mouse
 
 // # Decide on pause duration
 // pause_mean = 1.47248495 #Jana
