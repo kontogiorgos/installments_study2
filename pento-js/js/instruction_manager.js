@@ -149,11 +149,10 @@ $(document).ready(function() {
 		}
 
 		/**
-		 * Play an example audiofile
+		 * Play intro
 		 */
 		audiotest() {
-//FIX FOR ALL
-			let test_file = '../resources/audio/intro_kevin.mp3';
+			let test_file = `../resources/audio/intro${ELEPHANT}.mp3`;
 			let test_audio = new Audio(test_file);
 			test_audio.oncanplaythrough = (event) => {test_audio.play();};
 		}
