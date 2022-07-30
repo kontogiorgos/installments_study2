@@ -289,7 +289,7 @@ $(document).ready(function() {
 	$('#audiotest_done').click(function() {
 		let transcript = $('#transcript').val();
 		if (transcript == '') { // input is missing
-			alert('Please type in what you hear in the test audio file');
+			alert('Please type in what you hear in the audio file');
 			$('#transcript').css('borderColor', 'red');
 		} else {
 			document.instruction_manager.add_info('audiotest', transcript);
