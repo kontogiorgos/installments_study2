@@ -24,7 +24,7 @@ if (!empty($data)) {
 	$mail->Username = "pentomino.data@gmail.com"; //dummy account
 	$mail->Password = "pentomino"; //dummy password
 	$mail->setFrom("pentomino.data@gmail.com", "Pentomino Data");
-	$mail->addAddress("diko@kth.se", "Dimosthenis Kontogiorgos");
+	$mail->addAddress("kontogiorgos@uni-potsdam.de", "Dimosthenis Kontogiorgos");
 	$mail->Subject = 'Pentomino Data: Study Completed';
 	$mail->msgHTML($data);
 	$mail->AltBody = 'HTML messaging not supported';

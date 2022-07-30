@@ -1,5 +1,6 @@
 <?php
 use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 require 'Exception.php';
 require 'PHPMailer.php';
@@ -17,9 +18,9 @@ if (!empty($data)) {
 	$mail->SMTPSecure = 'tls'; // ssl is depracated
 	$mail->SMTPAuth = true;
 	$mail->Username = "pentomino.data@gmail.com"; //dummy account
-	$mail->Password = "pentomino"; //dummy password
+	$mail->Password = "pqvjwyyehfeapcle"; //dummy password
 	$mail->setFrom("pentomino.data@gmail.com", "Pentomino Data");
-	$mail->addAddress("diko@kth.se", "Dimosthenis Kontogiorgos");
+	$mail->addAddress("kontogiorgos@uni-potsdam.de", "Dimosthenis Kontogiorgos");
 	$mail->Subject = 'Pentomino Data: New User';
 	$mail->msgHTML($data);
 	$mail->AltBody = 'HTML messaging not supported';
