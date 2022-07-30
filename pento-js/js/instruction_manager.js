@@ -101,9 +101,7 @@ $(document).ready(function() {
 			this.add_info('selected', selected_shape, 'shape');
 			this._stop_mouse_track(); // saves mouse movement
 			this.instruction.pause(); // stop audio
-			// Note: The highlighting only really makes sense for single-piece tasks,
-			// as the highlights are removed as soon as the next instruction is generated
-			// highlight correct shape in green
+			// Note: The highlighting only really makes sense for single-piece tasks, as the highlights are removed as soon as the next instruction is generated, highlight correct shape in green
 			if (START == 0) {
 				this.highlight_correct();
 				// correct shape selected
