@@ -298,14 +298,13 @@ $(document).ready(function() {
 		}
 	});
 
-//Log instalment and pause timings from js and also filler (mp3 duration for timing)
 //If it does a filled pause and the user clicked then say yeah correct or no not correct, generate filler anyway and then decide what to do (interrupt instruction to use yes/no)
 //Make a csv file with bert (with actual instalments) and load it to take decision
 //Check ml.py for features and export models
 //Make an estimation of uncertainty in real time and visualise it to detect whether to give another instalment (decide also on when to speak, get predetermined pause), do incremental generation of instructions and visualise in real time uncertainty detection like Gabriel incremental ASR paper and video
 //Print labels on what objects and what instalments and save to txt, log other data too (define/log current state of interaction), log user actions, robot speech and user mouse
 
-//Log number of tell-me-more pressed
+//Log number of tell-me-more pressed, instalment and pause timings and fillers (mp3 duration for timing)
 
 // # Decide on pause duration
 // pause_mean = 1.47248495 #Jana
