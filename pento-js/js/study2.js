@@ -298,7 +298,6 @@ $(document).ready(function() {
 		}
 	});
 
-//Check and update export file after task
 //Check how to train model in sklearn and use it in javascript (sklearn-porter) in real time or send to python (maybe using REST) in server
 //Mute speech if we want to stop it (when user chooses one) or keep it playing, play instalments and pause them for tell-me-more condition until button pressed, same with mouse depending on mouse movements
 //Log instalment and pause timings from js and also filler (mp3 duration for timing)
