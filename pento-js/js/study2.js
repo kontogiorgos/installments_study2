@@ -298,6 +298,7 @@ $(document).ready(function() {
 		}
 	});
 
+//Check again phpmailer
 //Check ml.py for features and export models
 //Make an estimation of uncertainty in real time and visualise it to detect whether to give another instalment (decide also on when to speak, get predetermined pause), do incremental generation of instructions and visualise in real time uncertainty detection like Gabriel incremental ASR paper and video
 //Print labels on what objects and what instalments and save to txt, log other data too (define/log current state of interaction), log user actions, robot speech and user mouse
