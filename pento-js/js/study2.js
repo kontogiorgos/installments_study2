@@ -298,7 +298,6 @@ $(document).ready(function() {
 		}
 	});
 
-//Mute speech if we want to stop it (when user chooses one) or keep it playing, play instalments and pause them for tell-me-more condition until button pressed, same with mouse depending on mouse movements
 //Log instalment and pause timings from js and also filler (mp3 duration for timing)
 //If it does a filled pause and the user clicked then say yeah correct or no not correct, generate filler anyway and then decide what to do (interrupt instruction to use yes/no)
 //Make a csv file with bert (with actual instalments) and load it to take decision
