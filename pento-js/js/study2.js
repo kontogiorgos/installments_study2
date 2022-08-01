@@ -595,7 +595,6 @@ $(document).ready(function() {
 	this.open_popup(welcome);
 })
 
-//Make a csv file with bert (with actual instalments) and load it, check ml.py for feature extraction and export models
 //Make an estimation of uncertainty in real time and visualise it to detect probability on whether to give another instalment, like Gabriel incremental ASR paper and video
 //Decide and implement predetermined pause
 
