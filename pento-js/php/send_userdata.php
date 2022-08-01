@@ -10,7 +10,7 @@ header("Content-Type: application/json");
 $data = file_get_contents("php://input");
 
 if (!empty($data)) {
-	$mail = new PHPMailer;
+	$mail = new PHPMailer(true);
 	$mail->isSMTP();
 	$mail->SMTPDebug = 2; // 0 = off (for production use) - 1 = client messages - 2 = client and server messages
 	$mail->Host = "smtp.gmail.com"; // use $mail->Host = gethostbyname('smtp.gmail.com'); if your network does not support SMTP over IPv6
@@ -20,7 +20,7 @@ if (!empty($data)) {
 	$mail->Username = "pentomino.data@gmail.com"; //dummy account
 	$mail->Password = "pqvjwyyehfeapcle"; //dummy password
 	$mail->setFrom("pentomino.data@gmail.com", "Pentomino Data");
-	$mail->addAddress("kontogiorgos@uni-potsdam.de", "Dimosthenis Kontogiorgos");
+	$mail->addAddress("pentomino.data@gmail.com", "Dimosthenis Kontogiorgos");
 	$mail->Subject = 'Pentomino Data: New User';
 	$mail->msgHTML($data);
 	$mail->AltBody = 'HTML messaging not supported';

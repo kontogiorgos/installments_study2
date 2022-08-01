@@ -322,7 +322,7 @@ $(document).ready(function() {
 			document.instruction_manager.add_info('email', email);
 			document.instruction_manager.add_info('follow_agent', follow_agent);
 			document.instruction_manager.add_info('start_time', new Date().toString());
-//Check again phpmailer
+
 			// send initial data to email when a user starts
 			let user_data = document.instruction_manager.data_to_JSON();
 			let email_script = '../php/send_userdata.php';
