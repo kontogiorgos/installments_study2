@@ -457,6 +457,14 @@ $(document).ready(function() {
 			let track_device = $('input[name="track_device"]:checked').val();
 			track_device = (track_device=='other') ? $('#other_device').val() : track_device;
 
+			if (ELEPHANT == 1) {
+				agent_name = 'Kevin';
+			} else if (ELEPHANT == 2) {
+				agent_name = 'David';
+			} else {
+				agent_name = 'Peter';
+			}
+
 			if (age == '') {
 				alert('Please specify your age or type none.');
 				$('#age').css('borderColor', 'red');
@@ -485,34 +493,34 @@ $(document).ready(function() {
 				alert('Please specify how collaborative were the instructions');
 				$('#collaborative').css('borderColor', 'red');
 			} else if (!like) {
-				alert('Please specify how much you liked Mathew');
+				alert(`Please specify how much you liked ${agent_name}`);
 				$('#like').css('borderColor', 'red');
 			} else if (!friendly) {
-				alert("Please specify Mathew's friendliness");
+				alert(`Please specify ${agent_name}'s friendliness`);
 				$('#friendly').css('borderColor', 'red');
 			} else if (!kind) {
-				alert("Please specify Mathew's kindness");
+				alert(`Please specify ${agent_name}'s kindness`);
 				$('#kind').css('borderColor', 'red');
 			} else if (!pleasant) {
-				alert("Please specify how pleasant was Mathew");
+				alert(`Please specify how pleasant was ${agent_name}`);
 				$('#pleasant').css('borderColor', 'red');
 			} else if (!nice) {
-				alert("Please specify how nice was Mathew");
+				alert(`Please specify how nice was ${agent_name}`);
 				$('#nice').css('borderColor', 'red');
 			} else if (!competent) {
-				alert("Please specify Mathew's competence");
+				alert(`Please specify ${agent_name}'s competence`);
 				$('#competent').css('borderColor', 'red');
 			} else if (!knowledgeable) {
-				alert("Please specify Mathew's knowledge");
+				alert(`Please specify ${agent_name}'s knowledge`);
 				$('#knowledge').css('borderColor', 'red');
 			} else if (!responsible) {
-				alert("Please specify how responsible was Mathew");
+				alert(`Please specify how responsible was ${agent_name}`);
 				$('#responsible').css('borderColor', 'red');
 			} else if (!intelligent) {
-				alert("Please specify Mathew's intelligence");
+				alert(`Please specify ${agent_name}'s intelligence`);
 				$('#intelligent').css('borderColor', 'red');
 			} else if (!sensible) {
-				alert("Please specify how sensible was Mathew");
+				alert(`Please specify how sensible was ${agent_name}`);
 				$('#sensible').css('borderColor', 'red');
 			} else if (!comply) {
 				alert('Please specify your compliance');
