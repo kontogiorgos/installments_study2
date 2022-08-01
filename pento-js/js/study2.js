@@ -314,8 +314,9 @@ $(document).ready(function() {
 		} else if (!follow_agent) {
 			alert('Please select one of the options');
 		} else {
-//FIX PARTICIPANT
-			//document.instruction_manager.add_info('participant', PARTICIPANT);
+
+			document.instruction_manager.add_info('elephant', ELEPHANT);
+			document.instruction_manager.add_info('condition', CONDITION);
 			document.instruction_manager.add_info('browser_os_info', window.navigator.userAgent);
 			document.instruction_manager.add_info('name', name);
 			document.instruction_manager.add_info('email', email);
