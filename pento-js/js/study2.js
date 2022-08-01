@@ -298,8 +298,6 @@ $(document).ready(function() {
 		}
 	});
 
-//Check again phpmailer
-
 // # Decide on pause duration
 // pause_mean = 1.47248495 #Jana
 // pause_std = 2.216527706 #Jana
@@ -356,7 +354,7 @@ $(document).ready(function() {
 			document.instruction_manager.add_info('email', email);
 			document.instruction_manager.add_info('follow_agent', follow_agent);
 			document.instruction_manager.add_info('start_time', new Date().toString());
-
+//Check again phpmailer
 			// send initial data to email when a user starts
 			let user_data = document.instruction_manager.data_to_JSON();
 			let email_script = '../php/send_userdata.php';
