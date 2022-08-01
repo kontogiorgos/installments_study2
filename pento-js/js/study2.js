@@ -298,7 +298,6 @@ $(document).ready(function() {
 		}
 	});
 
-//Make an estimation of uncertainty in real time and visualise it to detect probability on whether to give another instalment, like Gabriel incremental ASR paper and video
 //Check again phpmailer
 
 // # Decide on pause duration
@@ -627,4 +626,5 @@ $(document).ready(function() {
 
 //Log number of tell-me-more pressed, instalment and pause timings and fillers (mp3 duration for timing), result from classifier (bert,mouse - features and prediction)
 //Make a csv file with bert (with actual instalments) and load it, check ml.py for feature extraction and export models
+//Make an estimation of uncertainty in real time and visualise it to detect probability on whether to give another instalment, like Gabriel incremental ASR paper and video
 //Decide and implement predetermined pause
