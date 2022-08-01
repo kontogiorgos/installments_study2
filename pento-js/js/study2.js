@@ -355,15 +355,13 @@ $(document).ready(function() {
 		var tasks_remaining = loadNewFile();
 
 		// update elephant image
-//FIX for all
-		document.getElementById('elephant').src='../resources/img/elephant1/elephant'+elephant_c+'.png';
+		document.getElementById('elephant').src=`../resources/img/elephant${ELEPHANT}/elephant`+elephant_c+`.png`;
 		elephant_c = elephant_c + 1;
 	})
 
 	// submit task questionnaire, load new task or move to demographic questionnaire
 	$('#questionnaire_done').click(async function() {
-		// get and save the questionnaire answer
-		// all questions are mandatory!
+		// get and save the questionnaire answer, all questions are mandatory!
 		clear = $('input[name="clear"]:checked').val();
 		humanlike = $('input[name="humanlike"]:checked').val();
 		info = $('input[name="info"]:checked').val();
@@ -419,8 +417,7 @@ $(document).ready(function() {
 			var tasks_remaining = loadNewFile();
 
 			// update elephant image
-//FIX FOR ALL
-			document.getElementById('elephant').src='../resources/img/elephant1/elephant'+elephant_c+'.png';
+			document.getElementById('elephant').src=`../resources/img/elephant${ELEPHANT}/elephant`+elephant_c+`.png`;
 			elephant_c = elephant_c + 1;
 
 			// finish the run
