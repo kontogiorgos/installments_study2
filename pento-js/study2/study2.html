@@ -865,4 +865,40 @@ Have repetitions if nothing happens for a while or if the participant requests (
 Log number of tell-me-more pressed, instalment and pause timings and fillers (mp3 duration for timing), result from classifier (bert,mouse - features and prediction)
 Make a csv file with bert (with actual instalments) and load it, check ml.py for feature extraction and export models
 Make an estimation of uncertainty in real time and visualise it to detect probability on whether to give another instalment, like Gabriel incremental ASR paper and video
+Decide and implement predetermined pause
+-->
+
+<!--
+# Decide on pause duration
+pause_mean = 1.47248495 #Jana
+pause_std = 2.216527706 #Jana
+pause = -1
+while pause < 0 or pause > (pause_mean*2):
+    pause = np.random.normal(pause_mean, pause_std, 1)
+
+# Get filler prob (22%)
+filler_num = randrange(100) #smaller than 11% pick uh, smaller than 22% pick uhm, bigger pick no filler
+if filler_num < 11:
+    if pause <= 0.300: #uh lasts 300ms
+        uh_break = 0
+    else:
+        uh_break = ((pause - 0.300) / 2) * 1000
+        uh_break = int(math.modf(uh_break[0])[1])
+    utt_list[s] = " <break time='" + str(uh_break) + "ms'/><phoneme alphabet='ipa' ph='/}h/'>uh</phoneme><break time='" + str(uh_break) + "ms'/>"
+elif filler_num >= 11 and filler_num <= 22:
+    if pause <= 0.430: #uhm lasts 430ms
+        uhm_break = 0
+    else:
+        uhm_break = ((pause - 0.430) / 2) * 1000
+        uhm_break = int(math.modf(uhm_break[0])[1])
+    utt_list[s] = " <break time='" + str(uhm_break) + "ms'/><phoneme alphabet='ipa' ph='/@@m/'>uhm</phoneme><break time='" + str(uhm_break) + "ms'/>"
+else:
+    if pause <= 0.750: #'?' lasts 750ms
+        pause = pause * 1000
+        pause = int(math.modf(pause[0])[1])
+        utt_list[s] = " <break time='" + str(pause) + "ms'/>"
+    else:
+        pause = (pause - 0.750) * 1000 #remove time for '?'
+        pause = int(math.modf(pause[0])[1])
+        utt_list[s] = "? <break time='" + str(pause) + "ms'/>"
 -->
