@@ -67,21 +67,41 @@
 
 		<!-- Audio test -->
 		<!-- <speak><prosody rate="90%">
-			Hi there! I'm Peter! I am looking forward to working with you today. I am currently training to help people in their everyday tasks. You will have to excuse me for being a little slow, I am still learning how to speak and interact with humans. Please find a quiet spot, so you can concentrate on what you hear. After a short consent form, I will help you pick up some Pentomino pieces. But first, please listen to the following audio segment and type the spoken sentence on the text box below.
+			Hi there! I'm Kevin/David/Peter! I am looking forward to working with you today. I am currently training to help people in their everyday tasks. You will have to excuse me for
+			being a little slow, I am still learning how to speak and interact with humans. Please find a quiet spot, so you can concentrate on what you hear. After a short consent form,
+			I will help you pick up some Pentomino pieces. But first, please listen to the following audio segment and type the spoken sentence on the text box below.
 		</prosody></speak> -->
 		<dialog id="audiotest">
-			<h2>Mathew is speaking...</h2>
-			<p>Can you hear Mathew? You will need to follow spoken instructions. Try to find a quiet place where you won't be interrupted.</p>
+			<h2>
+				<p id="speaking"></p>
+				<script>
+					if (ELEPHANT == 1) {
+						agent_name = 'Kevin';
+					} else if (ELEPHANT == 2) {
+						agent_name = 'David';
+					} else {
+						agent_name = 'Peter';
+					}
+					document.getElementById("speaking").innerHTML = agent_name + ' is speaking...';
+				</script>
+			</h2>
+			<p id="canyouhear"></p>
+			<script>
+				document.getElementById("canyouhear").innerHTML = "Can you hear " + agent_name + "? You will need to follow spoken instructions. Try to find a quiet place where you won't be interrupted.";
+			</script>
 			<hr>
-			<p><strong>When Mathew stops speaking, listen to the following message and type what he said in the text box below.</strong></p>
+			<p id="when"></p>
+			<script>
+				document.getElementById("when").innerHTML = "<strong>When " + agent_name + " stops speaking, listen to the following message and type what he said in the text box below.</strong>";
+			</script>
 			<audio controls src="../resources/audio/audiotest.mp3">
 				Your current browser does not support the <code>audio</code> element. If you can, you may want to try a different browser.
 			</audio>
 			<p></p>
-			<input id="transcript" size="30" name="transcript"/> &nbsp; What did Mathew say? (Press the play button)
+			<input id="transcript" size="30" name="transcript"> &nbsp; What did he say? (Press the play button).
 			<p><strong>Unfortunately, if you can't hear the audio, you cannot take part in this study. You can also try another browser*.</strong></p>
 			<hr>
-			<p>*the study should work properly on Chrome and Firefox on Mac, Windows and Linux. It does <strong>NOT</strong> work on Safari.</p>
+			<p>*the study works properly on Chrome and Firefox on Mac, Windows and Linux. It does <strong>NOT</strong> work on Safari.</p>
 			<button id="audiotest_done">Continue</button>
 		</dialog>
 
