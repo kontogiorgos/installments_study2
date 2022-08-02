@@ -108,11 +108,15 @@
 		<!-- Consent form -->
 		<dialog id="consent">
 			<h2>Informed consent form</h2>
-			<p>In this study you will assess the suitability of instructions to pick pentomino objects in order to build an elephant shape.<br>
-			Mathew will instruct you what pieces to pick. He will then place (and may rotate/flip) the right pentominoes on the elephant.<br>
-			You can see your time and how many correct pieces you found at the top right part of your screen. You can see your<br>
-			overall progress on the bar below the boards.</p>
-			<p>It is important that you are fluent in English. The study is expected to last 10-15 minutes and is entirely voluntary.<br>
+			<p id="willinstruct"></p>
+			<script>
+				document.getElementById("willinstruct").innerHTML = "In this study you will assess <strong>" + agent_name + "</strong> instructing you to pick pentomino " +
+				"objects in order to build an elephant shape.<br> <strong>" + agent_name + "</strong> will instruct you what pieces to pick. " +
+				"He will then place (and may rotate/flip) the right pentominoes on the elephant.<br>" +
+				"You can see your time and how many correct pieces you found at the top right part of your screen. You can see your<br>" +
+				"overall progress on the bar below the boards.";
+			</script>
+			<p>It is important that you are fluent in English. The study is expected to last 10 minutes and is entirely voluntary.<br>
 			We collect your mouse movements and clicks as well as your responses to the questions provided.<br>
 			The questionnaire data will only be used for research purposes and may be shared with other researchers.</p>
 			<hr>
@@ -125,7 +129,10 @@
 			<input type="checkbox" id="consent_agree" name="consent_agree">
 			<label for="consent_agree">I have read and understood the above information. I agree to take part in the study.</label>
 			<hr>
-			<p>How much are you willing to comply to Mathew's instructions (on Pentomino objects)?</p>
+			<p id="agree"></p>
+			<script>
+				document.getElementById("agree").innerHTML = "How much are you willing to comply to <strong>" + agent_name + "'s</strong> instructions (on Pentomino objects)?";
+			</script>
 			<label for="follow_agent1">very little</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<label for="follow_agent1">&nbsp;1<br/>
 				<input type="radio" name="follow_agent" value=1 id="follow_agent1"/>
