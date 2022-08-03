@@ -363,19 +363,15 @@ $(document).ready(function() {
 	$('#questionnaire_done').click(async function() {
 		// get and save the questionnaire answer, all questions are mandatory!
 		clear = $('input[name="clear"]:checked').val();
-		humanlike = $('input[name="humanlike"]:checked').val();
 		info = $('input[name="info"]:checked').val();
-		effort = $('input[name="effort"]:checked').val();
 
-		if ((!clear) || (!humanlike) || (!info) || (!effort)) {
+		if ((!clear) || (!info)) {
 			alert("Please answer all questions")
 		} else {
 			if (document.instruction_manager) {
 				// save all answers
 				document.instruction_manager.add_info('clarity', clear, 'task');
-				document.instruction_manager.add_info('humanlike', humanlike, 'task');
 				document.instruction_manager.add_info('information', info, 'task');
-				document.instruction_manager.add_info('effort', effort, 'task');
 				document.instruction_manager.add_info('error', $('#task_error').is(":checked"), 'task');
 			}
 
@@ -387,13 +383,6 @@ $(document).ready(function() {
 			document.getElementById("clear5").checked = false;
 			document.getElementById("clear6").checked = false;
 			document.getElementById("clear7").checked = false;
-			document.getElementById("humanlike1").checked = false;
-			document.getElementById("humanlike2").checked = false;
-			document.getElementById("humanlike3").checked = false;
-			document.getElementById("humanlike4").checked = false;
-			document.getElementById("humanlike5").checked = false;
-			document.getElementById("humanlike6").checked = false;
-			document.getElementById("humanlike7").checked = false;
 			document.getElementById("info1").checked = false;
 			document.getElementById("info2").checked = false;
 			document.getElementById("info3").checked = false;
@@ -401,13 +390,6 @@ $(document).ready(function() {
 			document.getElementById("info5").checked = false;
 			document.getElementById("info6").checked = false;
 			document.getElementById("info7").checked = false;
-			document.getElementById("effort1").checked = false;
-			document.getElementById("effort2").checked = false;
-			document.getElementById("effort3").checked = false;
-			document.getElementById("effort4").checked = false;
-			document.getElementById("effort5").checked = false;
-			document.getElementById("effort6").checked = false;
-			document.getElementById("effort7").checked = false;
 			document.getElementById("task_error").checked = false;
 
 			questionnaire.close();

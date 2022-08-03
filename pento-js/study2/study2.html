@@ -192,7 +192,10 @@
 			<p><strong>Please rate the instruction you just heard.</strong></p>
 
 			<!-- Clarity -->
-			<p>Mathew's instruction was ...</p>
+			<p id="instructionwas"></p>
+			<script>
+				document.getElementById("instructionwas").innerHTML = agent_name + "'s instruction was ...";
+			</script>
 			<label for="clear1">unambiguous</label>&nbsp;
 			<label for="clear1">&nbsp;1<br/>
 				<input type="radio" name="clear" value=1 id="clear1"/>
@@ -218,35 +221,11 @@
 			<label for="clear7">ambiguous</label>
 			<br><br>
 
-			<!-- Humanlike -->
-			<p>Mathew's instruction was ...</p>
-			<label for="humanlike1">machine-like</label>&nbsp;&nbsp;&nbsp;
-			<label for="humanlike1">&nbsp;1<br/>
-				<input type="radio" name="humanlike" value=1 id="humanlike1"/>
-			</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<label for="humanlike2">&nbsp;2<br/>
-				<input type="radio" name="humanlike" value=2 id="humanlike2"/>
-			</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<label for="humanlike3">&nbsp;3<br/>
-				<input type="radio" name="humanlike" value=3 id="humanlike3"/>
-			</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<label for="humanlike4">&nbsp;4<br/>
-				<input type="radio" name="humanlike" value=4 id="humanlike4"/>
-			</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<label for="humanlike5">&nbsp;5<br/>
-				<input type="radio" name="humanlike" value=5 id="humanlike5"/>
-			</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<label for="humanlike6">&nbsp;6<br/>
-				<input type="radio" name="humanlike" value=6 id="humanlike6"/>
-			</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<label for="humanlike7">&nbsp;7<br/>
-				<input type="radio" name="humanlike" value=7 id="humanlike7"/>
-			</label>&nbsp;&nbsp;&nbsp;
-			<label for="humanlike7">human-like</label>
-			<br><br>
-
 			<!-- Information -->
-			<p>Mathew's instruction had ... information</p>
+			<p id="instructionhad"></p>
+			<script>
+				document.getElementById("instructionhad").innerHTML = agent_name + "'s instruction had ... information";
+			</script>
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<label for="info1">too little</label>&nbsp;
 			<label for="info1">&nbsp;1<br/>
@@ -273,36 +252,8 @@
 			<label for="info7">too much</label>
 			<br><br>
 
-			<!-- Effort -->
-			<p>Mathew put ... effort in this instruction</p>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<label for="effort1">too little</label>&nbsp;
-			<label for="effort1">&nbsp;1<br/>
-				<input type="radio" name="effort" value=1 id="effort1"/>
-			</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<label for="effort2">&nbsp;2<br/>
-				<input type="radio" name="effort" value=2 id="effort2"/>
-			</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<label for="effort3">&nbsp;3<br/>
-				<input type="radio" name="effort" value=3 id="effort3"/>
-			</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<label for="effort4">&nbsp;4<br/>
-				<input type="radio" name="effort" value=4 id="effort4"/>
-			</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<label for="effort5">&nbsp;5<br/>
-				<input type="radio" name="effort" value=5 id="effort5"/>
-			</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<label for="effort6">&nbsp;6<br/>
-				<input type="radio" name="effort" value=6 id="effort6"/>
-			</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<label for="effort7">&nbsp;7<br/>
-				<input type="radio" name="effort" value=7 id="effort7"/>
-			</label>&nbsp;&nbsp;&nbsp;
-			<label for="effort7">too much</label>
-			<br><br>
-
 			<input type="checkbox" name="task_error" id="task_error">
-			<label for="task_error">&nbsp;Something went wrong</label>
+			<label for="task_error">&nbsp;Something went wrong (I did not hear the instruction)</label>
 			<br>
 			<button id="questionnaire_done">Submit</button>
 		</dialog>
