@@ -344,7 +344,11 @@
 				<br><br>
 
 				<!-- Complete -->
-				<p>Mathew's instructions were ...</p>
+				<p id="werecomplete"></p>
+				<script>
+					document.getElementById("werecomplete").innerHTML = "<strong>" + agent_name + "'s</strong> instructions were ...";
+				</script>
+				<p></p>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<label for="complete1">incomplete</label>&nbsp;&nbsp;&nbsp;
 				<label for="complete1">&nbsp;1<br/>
@@ -372,7 +376,7 @@
 				<br>
 
 				<!-- Helpful -->
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<label for="helpful1">distracting</label>&nbsp;&nbsp;&nbsp;
 				<label for="helpful1">&nbsp;1<br/>
 					<input type="radio" name="helpful" value=1 id="helpful1"/>
@@ -425,7 +429,7 @@
 				<br><br>
 
 <!--
-Matthew could adapt to my infomation needs
+Matthew's instructions were adapted to my infomation needs
 -->
 
 				<!-- Likeability 1 -->
