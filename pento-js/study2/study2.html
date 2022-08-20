@@ -313,7 +313,10 @@
 				<br><br>
 
 				<!-- Understanding -->
-				<p>It was ... to understand Mathew's instructions.</p>
+				<p id="understand"></p>
+				<script>
+					document.getElementById("understand").innerHTML = "It was ... to understand <strong>" + agent_name + "'s</strong> instructions.";
+				</script>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<label for="understanding1">difficult</label>&nbsp;&nbsp;&nbsp;
 				<label for="understanding1">&nbsp;1<br/>
@@ -735,7 +738,7 @@ Phoney 1 2 3 4 5 6 7 Genuine
 				<label for="comply7">a lot</label>
 				<br><br>
 
-				<!-- Difficulty -->
+				<!-- Difficulty MAYBE REMOVE-->
 				<p>The task was ...</p>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<label for="easy1">difficult</label>&nbsp;&nbsp;&nbsp;
