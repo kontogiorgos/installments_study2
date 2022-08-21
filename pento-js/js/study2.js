@@ -423,6 +423,7 @@ $(document).ready(function() {
 			let complete = $('input[name="complete"]:checked').val();
 			let helpful = $('input[name="helpful"]:checked').val();
 			let collaborative = $('input[name="collaborative"]:checked').val();
+			let adapted = $('input[name="adapted"]:checked').val();
 			let like = $('input[name="like"]:checked').val();
 			let friendly = $('input[name="friendly"]:checked').val();
 			let kind = $('input[name="kind"]:checked').val();
@@ -454,64 +455,67 @@ $(document).ready(function() {
 				alert('Please specify your gender or type none.');
 				$('#gender').css('borderColor', 'red');
 			} else if (!education) {
-				alert('Please specify your education');
+				alert('Please specify your education.');
 				$('#education').css('borderColor', 'red');
 			} else if (!language) {
-				alert('Please specify your native language');
+				alert('Please specify your native language.');
 				$('#language').css('borderColor', 'red');
 			} else if (!fluent) {
-				alert('Please specify your English fluency');
+				alert('Please specify your English fluency.');
 				$('#fluency').css('borderColor', 'red');
 			} else if (!understanding) {
-				alert('Please specify your understanding');
+				alert('Please specify your understanding.');
 				$('#understanding').css('borderColor', 'red');
 			} else if (!complete) {
-				alert('Please specify the instruction completeness');
+				alert('Please specify the instruction completeness.');
 				$('#complete').css('borderColor', 'red');
 			} else if (!helpful) {
-				alert('Please specify how helpful were the instructions');
+				alert('Please specify how helpful were the instructions.');
 				$('#helpful').css('borderColor', 'red');
 			} else if (!collaborative) {
-				alert('Please specify how collaborative were the instructions');
+				alert('Please specify how collaborative were the instructions.');
 				$('#collaborative').css('borderColor', 'red');
+			} else if (!adapted) {
+				alert('Please specify how adapted were the instructions.');
+				$('#adapted').css('borderColor', 'red');
 			} else if (!like) {
-				alert(`Please specify how much you liked ${agent_name}`);
+				alert(`Please specify how much you liked ${agent_name}`.);
 				$('#like').css('borderColor', 'red');
 			} else if (!friendly) {
-				alert(`Please specify ${agent_name}'s friendliness`);
+				alert(`Please specify ${agent_name}'s friendliness.`);
 				$('#friendly').css('borderColor', 'red');
 			} else if (!kind) {
-				alert(`Please specify ${agent_name}'s kindness`);
+				alert(`Please specify ${agent_name}'s kindness.`);
 				$('#kind').css('borderColor', 'red');
 			} else if (!pleasant) {
-				alert(`Please specify how pleasant was ${agent_name}`);
+				alert(`Please specify how pleasant was ${agent_name}.`);
 				$('#pleasant').css('borderColor', 'red');
 			} else if (!nice) {
-				alert(`Please specify how nice was ${agent_name}`);
+				alert(`Please specify how nice was ${agent_name}.`);
 				$('#nice').css('borderColor', 'red');
 			} else if (!competent) {
-				alert(`Please specify ${agent_name}'s competence`);
+				alert(`Please specify ${agent_name}'s competence.`);
 				$('#competent').css('borderColor', 'red');
 			} else if (!knowledgeable) {
-				alert(`Please specify ${agent_name}'s knowledge`);
+				alert(`Please specify ${agent_name}'s knowledge.`);
 				$('#knowledge').css('borderColor', 'red');
 			} else if (!responsible) {
-				alert(`Please specify how responsible was ${agent_name}`);
+				alert(`Please specify how responsible was ${agent_name}.`);
 				$('#responsible').css('borderColor', 'red');
 			} else if (!intelligent) {
-				alert(`Please specify ${agent_name}'s intelligence`);
+				alert(`Please specify ${agent_name}'s intelligence.`);
 				$('#intelligent').css('borderColor', 'red');
 			} else if (!sensible) {
-				alert(`Please specify how sensible was ${agent_name}`);
+				alert(`Please specify how sensible was ${agent_name}.`);
 				$('#sensible').css('borderColor', 'red');
 			} else if (!comply) {
-				alert('Please specify your compliance');
+				alert('Please specify your compliance.');
 				$('#comply').css('borderColor', 'red');
 			} else if (!easy) {
-				alert('Please specify the task difficulty');
+				alert('Please specify the task difficulty.');
 				$('#easy').css('borderColor', 'red');
 			} else if (!track_device) {
-				alert('Please specify your device');
+				alert('Please specify your device.');
 				$('#track_device').css('borderColor', 'red');
 			} else {
 				// save given demographic info
@@ -524,6 +528,7 @@ $(document).ready(function() {
 				document.instruction_manager.add_info('complete', complete);
 				document.instruction_manager.add_info('helpful', helpful);
 				document.instruction_manager.add_info('collaborative', collaborative);
+				document.instruction_manager.add_info('adapted', adapted);
 				document.instruction_manager.add_info('like', like);
 				document.instruction_manager.add_info('friendly', friendly);
 				document.instruction_manager.add_info('kind', kind);
