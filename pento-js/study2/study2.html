@@ -348,7 +348,6 @@
 				<script>
 					document.getElementById("werecomplete").innerHTML = "<strong>" + agent_name + "'s</strong> instructions were ...";
 				</script>
-				<p></p>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<label for="complete1">incomplete</label>&nbsp;&nbsp;&nbsp;
 				<label for="complete1">&nbsp;1<br/>
@@ -433,7 +432,6 @@
 				<script>
 					document.getElementById("wereadapted").innerHTML = "<strong>" + agent_name + "'s</strong> instructions were <strong>adapted to my information needs</strong>.";
 				</script>
-				<p></p>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<label for="adapted1">not at all</label>&nbsp;&nbsp;&nbsp;
 				<label for="adapted1">&nbsp;1<br/>
@@ -461,7 +459,10 @@
 				<br><br>
 
 				<!-- Likeability 1 -->
-				<p>Please rate your impression of Mathew on these scales.</p>
+				<p id="pleaserate1"></p>
+				<script>
+					document.getElementById("pleaserate1").innerHTML = "Please rate your impression of <strong>" + agent_name + "</strong> on these scales.";
+				</script>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<label for="like1">dislike</label>&nbsp;&nbsp;&nbsp;
 				<label for="like1">&nbsp;1<br/>
@@ -597,7 +598,10 @@
 				<br><br>
 
 				<!-- Intelligence 1 -->
-				<p>Please rate your impression of Mathew on these scales.</p>
+				<p id="pleaserate2"></p>
+				<script>
+					document.getElementById("pleaserate2").innerHTML = "Please rate your impression of <strong>" + agent_name + "</strong> on these scales.";
+				</script>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<label for="competent1">incompetent</label>&nbsp;&nbsp;&nbsp;
 				<label for="competent1">&nbsp;1<br/>
@@ -733,7 +737,10 @@
 				<br><br>
 
 				<!-- Complying -->
-				<p>I complied ... to Mathew's instructions.</p>
+				<p id="icomplied"></p>
+				<script>
+					document.getElementById("icomplied").innerHTML = "I complied ... to <strong>" + agent_name + "'s</strong> instructions.";
+				</script>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<label for="comply1">very little</label>&nbsp;&nbsp;&nbsp;
 				<label for="comply1">&nbsp;1<br/>

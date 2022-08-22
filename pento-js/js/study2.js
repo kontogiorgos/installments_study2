@@ -479,7 +479,7 @@ $(document).ready(function() {
 				alert('Please specify how adapted were the instructions.');
 				$('#adapted').css('borderColor', 'red');
 			} else if (!like) {
-				alert(`Please specify how much you liked ${agent_name}`.);
+				alert(`Please specify how much you liked ${agent_name}.`);
 				$('#like').css('borderColor', 'red');
 			} else if (!friendly) {
 				alert(`Please specify ${agent_name}'s friendliness.`);
