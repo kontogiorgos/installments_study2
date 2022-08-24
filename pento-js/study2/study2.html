@@ -825,7 +825,10 @@
 				</script>
 				<input id="best_strategy" size="70">
 
-				<p>What strategy from Mathew helped you the least to identify pieces?</p>
+				<p id="whatleast"></p>
+				<script>
+					document.getElementById("whatleast").innerHTML = "What strategy from <strong>" + agent_name + "</strong> helped you the <strong>least</strong> to identify pieces?";
+				</script>
 				<input id="worst_strategy" size="70">
 
 				<!--
