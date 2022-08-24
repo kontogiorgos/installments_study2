@@ -866,12 +866,6 @@
 </html>
 
 <!--
-Play all conditions and maps to check the instalments are correct
-Put tell-me-more button (tell-me-more button only appears (clickable) when the robot stops talking), punish them if they click tell-me-more many times or use a counter, use space key (or a real button for in person study) to not interfere with mouse movements
-Have repetitions if nothing happens for a while or if the participant requests (design repeat behaviour)
--->
-
-<!--
 Log number of tell-me-more pressed and when, instalment and pause timings and fillers (mp3 duration for timing), result from classifier (bert,mouse - features and prediction)
 Make a csv file with bert (with actual instalments) and load it, check ml.py for feature extraction and export models
 Make an estimation of uncertainty in real time and visualise it to detect probability on whether to give another instalment, like Gabriel incremental ASR paper and video
@@ -911,4 +905,9 @@ else:
         pause = (pause - 0.750) * 1000 #remove time for '?'
         pause = int(math.modf(pause[0])[1])
         utt_list[s] = "? <break time='" + str(pause) + "ms'/>"
+-->
+
+<!--
+Put tell-me-more button (only appears (clickable) when the robot stops talking), punish them if they click it many times or use a counter, use space key to not interfere with mouse movements
+Play all conditions and maps to check the instalments are correct
 -->
