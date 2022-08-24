@@ -816,10 +816,13 @@
 				</script>
 				<input id="know_want" size="70">
 
-				<p>What was the greatest difficulty in solving the task?</p>
+				<p>What was the <strong>greatest difficulty</strong> in solving the task?</p>
 				<input id="greatest_difficulty" size="70">
 
-				<p>What strategy from Mathew helped you the most to identify pieces?</p>
+				<p id="whatmost"></p>
+				<script>
+					document.getElementById("whatmost").innerHTML = "What strategy from <strong>" + agent_name + "</strong> helped you the <strong>most</strong> to identify pieces?";
+				</script>
 				<input id="best_strategy" size="70">
 
 				<p>What strategy from Mathew helped you the least to identify pieces?</p>
