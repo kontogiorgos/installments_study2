@@ -810,7 +810,10 @@
 				<input name="other_device" id="other_device">
 				<br>
 
-				<p>Did you always know what Mathew wanted from you?</p>
+				<p id="didyoualways"></p>
+				<script>
+					document.getElementById("didyoualways").innerHTML = "Did you always know what <strong>" + agent_name + "</strong> wanted from you?";
+				</script>
 				<input id="know_want" size="70">
 
 				<p>What was the greatest difficulty in solving the task?</p>
