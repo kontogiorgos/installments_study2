@@ -866,6 +866,16 @@
 </html>
 
 <!--
+Make an estimation of uncertainty in real time and visualise it to detect probability on whether to give another instalment, like Gabriel incremental ASR paper and video
+Decide and implement predetermined pause
+Make a csv file with bert (with actual instalments) and load it
+Check ml.py for feature extraction and export models
+Put tell-me-more button (only appears (clickable) when the robot stops talking), punish them if they click it many times or use a counter, use space key to not interfere with mouse movements
+Log number of tell-me-more pressed and when, also instalment and pause timings and fillers (mp3 duration for timing), result from classifier (bert, mouse - features and prediction)
+Play all conditions and maps to check the instalments are correct
+-->
+
+<!--
 # Decide on pause duration
 pause_mean = 1.47248495 #Jana
 pause_std = 2.216527706 #Jana
@@ -898,14 +908,4 @@ else:
         pause = (pause - 0.750) * 1000 #remove time for '?'
         pause = int(math.modf(pause[0])[1])
         utt_list[s] = "? <break time='" + str(pause) + "ms'/>"
--->
-
-<!--
-Make an estimation of uncertainty in real time and visualise it to detect probability on whether to give another instalment, like Gabriel incremental ASR paper and video
-Decide and implement predetermined pause
-Make a csv file with bert (with actual instalments) and load it
-Check ml.py for feature extraction and export models
-Put tell-me-more button (only appears (clickable) when the robot stops talking), punish them if they click it many times or use a counter, use space key to not interfere with mouse movements
-Log number of tell-me-more pressed and when, also instalment and pause timings and fillers (mp3 duration for timing), result from classifier (bert, mouse - features and prediction)
-Play all conditions and maps to check the instalments are correct
 -->
