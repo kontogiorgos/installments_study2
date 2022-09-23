@@ -113,6 +113,17 @@ button{
     padding: 0 15px;
 }
 
+.tbutton {
+       top:76.5%;
+       left:56%;
+       width:145px;
+       height:40px;
+       position: absolute;
+       z-index: 2;
+       background: red;
+       color: white;
+       }
+
 .complexity-container button{
     float: right;
 }
