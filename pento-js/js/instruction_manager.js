@@ -18,6 +18,8 @@ $(document).ready(function() {
 
 	var stop_instalments = 0;
 
+	var tmm_count = 0;
+
 	// Audio durations (only for elephant 1)
 	var durations_F = [1.22, 1.39, 1.22, 0.98, 2.42, 2.52];
 	var durations_I = [1.46, 1.70, 1.96, 1.12, 1.15, 1.15];
@@ -158,57 +160,57 @@ $(document).ready(function() {
 						var instalments_played = 0;
 						stop_instalments = 0; //when the user clicks it stops uttering instalments
 
-						function playInstalment() {
-							// get current instalment audio duration
-							var audio_durations = [];
-							switch (current_shape) {
-							  case 'F':
-							    audio_durations = durations_F;
-							    break;
-							  case 'I':
-							    audio_durations = durations_I;
-							    break;
-							  case 'L':
-							    audio_durations = durations_L;
-							    break;
-							  case 'N':
-							    audio_durations = durations_N;
-							    break;
-							  case 'P':
-							    audio_durations = durations_P;
-							    break;
-							  case 'T':
-							    audio_durations = durations_T;
-							    break;
-							  case 'U':
-							    audio_durations = durations_U;
-									break;
-								case 'V':
-								  audio_durations = durations_V;
-									break;
-								case 'W':
-									audio_durations = durations_W;
-									break;
-								case 'X':
-									audio_durations = durations_X;
-									break;
-								case 'Y':
-									audio_durations = durations_Y;
-									break;
-								case 'Z':
-									audio_durations = durations_Z;
-									break;
-							}
+						// get current instalment audio duration
+						var audio_durations = [];
+						switch (current_shape) {
+							case 'F':
+								audio_durations = durations_F;
+								break;
+							case 'I':
+								audio_durations = durations_I;
+								break;
+							case 'L':
+								audio_durations = durations_L;
+								break;
+							case 'N':
+								audio_durations = durations_N;
+								break;
+							case 'P':
+								audio_durations = durations_P;
+								break;
+							case 'T':
+								audio_durations = durations_T;
+								break;
+							case 'U':
+								audio_durations = durations_U;
+								break;
+							case 'V':
+								audio_durations = durations_V;
+								break;
+							case 'W':
+								audio_durations = durations_W;
+								break;
+							case 'X':
+								audio_durations = durations_X;
+								break;
+							case 'Y':
+								audio_durations = durations_Y;
+								break;
+							case 'Z':
+								audio_durations = durations_Z;
+								break;
+						}
 
-							// define sleep function
-							function sleep(ms) {
-							  return new Promise(resolve => setTimeout(resolve, ms));
-							}
+						if (CONDITION != 3) { // CONDITION 1 or 2
+							function playInstalment() {
+								// define sleep function
+								function sleep(ms) {
+									return new Promise(resolve => setTimeout(resolve, ms));
+								}
 
-							// start pause after instalment audio duration
-							async function instalment_decision() {
-								// add instalment audio duration and decide pause
-								if (CONDITION != 3) {
+								// start pause after instalment audio duration
+								async function instalment_decision() {
+									// add instalment audio duration and decide pause
 									if (fillers[instalments_played] == 1 || fillers[instalments_played] == 2) {//uh and uhm
 										// wait before playing filler
 										var filler_in = audio_durations[instalments_played] + (pause_durations[instalments_played] / 2);
@@ -229,63 +231,176 @@ $(document).ready(function() {
 											};
 										}
 									}
-								}
 
-								// wait before playing instalment
-								await sleep((audio_durations[instalments_played] + pause_durations[instalments_played]) * 1000);
+									// wait before playing instalment
+									await sleep((audio_durations[instalments_played] + pause_durations[instalments_played]) * 1000);
 
-								instalment1 = new Audio(instr_file1);
-								instalment2 = new Audio(instr_file2);
-								instalment3 = new Audio(instr_file3);
-								instalment4 = new Audio(instr_file4);
-								instalment5 = new Audio(instr_file5);
+									instalment1 = new Audio(instr_file1);
+									instalment2 = new Audio(instr_file2);
+									instalment3 = new Audio(instr_file3);
+									instalment4 = new Audio(instr_file4);
+									instalment5 = new Audio(instr_file5);
 
-								if (instalments_played == 0) { // play first instalment
-									instalment1.oncanplaythrough = (event) => {
-										instalment1.play();
-									};
-								} else {
-									// decide whether to play the rest of the instalments
+									if (instalments_played == 0) { // play first instalment
+										instalment1.oncanplaythrough = (event) => {
+											instalment1.play();
+										};
+									} else {
+										// decide whether to play the rest of the instalments
 
-									if (CONDITION != 3) {
-										tellbutton.setAttribute("hidden", "hidden");
-										// tellbutton.removeAttribute("hidden");
-										// tellbutton.innerText = "Hellos";
+										// CONDITION 1
+										// if it decides to not issue more instalments update stop_instalments and make sure no more instalments or fillers are issued
+										//Import instructions bert from csv per condition and letter
+
+										//var prediction = new RandomForestClassifier2().predict([0.0772081,0.0803651,-0.0384032,0.0609297,-0.0351845,-0.0259474,0.0626215,0.0508008,0.0865968,-0.0312931,0.0277823,0.0561066,-0.0563539,0.0341416,-0.0364062,-0.0464845,0.0295061,-0.0164982,-0.0337172,-0.0044252,0.0336823,0.020655,-0.0329089,-0.0381185,-0.0122121,0.0320613,-0.00141594,0.075691,0.0547309,-0.0346745,0.00762394,0.0314017,0.0253145,-0.014009,-0.0394748,-0.0165162,0.00316187,0.119428,0.0627826,-0.0218815,0.0216069,-0.0386683,0.115342,0.0398415,-0.0288027,0.0283676,-0.00744526,-0.0313471,0.0623556,-0.0556016,0.0929476,-0.0994564,-0.0205227,-0.00228431,-0.015676,-0.0108526,0.016442,0.0341242,0.0212879,0.00852662,0.0558656,-0.0269754,-0.0104997,0.0186907,-0.0364256,-0.0260404,-0.0437328,-0.105722,0.0217009,-0.0366236,0.0605504,0.063658,-0.0152086,-0.0101903,-0.0159323,-0.112935,0.0645995,-0.00371464,0.0204621,0.163239,-0.108957,0.009359,0.0505502,0.0656617,-0.026718,-0.0059793,0.0787372,-0.0493157,-0.0292224,-0.0446032,-0.0372393,0.052956,-0.0367808,0.00669663,0.0667428,0.0143543,0.0233115,0.0287644,-0.0832575,0.0369081,0.0684081,0.00692129,-0.0260948,-0.0123904,0.0367239,-0.0335766,0.0416821,0.0263691,0.0305928,0.015874,-0.00427035,0.00750225,0.0329159,0.022365,-0.0316991,-0.0737661,-0.0435961,-0.0126497,-0.0059066,-0.022053,0.0562888,-0.0155755,-0.0435856,-0.0527597,0.000748956,0.0275491,-0.0118648,-7.00376e-33,-0.0174835,0.107402,0.0232354,-0.0175243,0.0317865,-0.000305519,-0.017368,-0.0690698,0.0232435,0.10422,0.00213073,-0.0479719,-0.0843131,0.115979,0.100222,-0.108056,-0.028337,0.00740181,-0.0195842,-0.0046073,-0.0365908,0.0237603,-0.0252964,0.0691873,0.0449437,0.0468235,0.0305531,-0.0413801,0.0533128,0.0584266,0.0012592,0.0674411,-0.0149923,-0.0767481,0.00544408,0.00764433,0.0589764,-0.0210428,0.0202517,0.0223066,0.0353339,-0.00431806,0.0151498,-0.0279542,0.0103215,-0.0445356,0.0852459,-0.0323394,-0.0226315,-0.00710403,0.00953955,0.000817031,0.0376713,0.00817364,0.038481,-0.0170865,0.0226263,-0.0490543,0.0214698,0.0525435,0.00155974,-0.0265622,0.0670795,-0.0268172,-0.0288657,0.0165248,-0.0103034,-0.0174122,-0.05115,0.0198236,-0.0876757,-0.0505676,0.0354608,0.0198631,-0.118076,-0.0165143,-0.0567323,-0.0431915,0.0669109,-0.0321928,-0.0672177,-0.0337936,0.00496956,-0.149575,-0.0546336,-0.0747938,-0.00971669,-0.0643564,0.00575195,-0.0883001,-0.0897463,-0.057602,0.00144693,-0.0118389,0.0101529,5.6477e-33,-0.150682,-0.0148389,-0.0645526,0.0965607,-0.0068177,-0.00609765,0.0559857,0.0527323,-0.0155959,0.0536039,-0.00654579,0.0312108,-2.51455e-05,-0.00895755,0.0568212,0.0771985,0.0152792,0.0214575,-0.0407892,-0.064339,0.0427209,-0.0718264,0.08459,0.0093674,0.0484821,0.123596,-0.0889202,-0.0935811,-0.051313,0.0674169,-0.0404031,-0.0843048,-0.0904227,-0.0701044,-0.036587,-0.0412682,0.0416026,-0.0642043,0.00702004,-0.112299,0.0488883,-0.0372907,0.0138307,0.142916,-0.00489448,0.00679804,0.126302,0.0189228,0.034996,0.000640444,0.00250635,-0.0059481,-0.00529968,0.0782623,-0.00905237,-0.011613,-0.0945534,0.0306219,0.0292424,0.0328836,0.0101771,-0.0143687,-0.0380738,-0.00564071,-0.0090425,0.0108221,0.0195598,-0.0413974,-0.0855022,0.108446,0.0324001,0.0638705,-0.0306398,-0.0110647,0.0287993,0.025878,0.0240931,-0.0155799,-0.0557096,0.119118,-0.0455631,-0.0132902,0.0532707,-0.0801614,0.0408001,-0.0197626,-0.0746953,0.105678,-0.0736966,-0.00857652,-0.0368687,0.0856333,-0.0827084,0.038303,0.00922276,-2.20056e-08,-0.00671652,-0.0286192,0.0158541,-0.0993866,0.00390309,-0.0575837,-0.0201865,-0.0150515,-0.0260026,-0.0624948,0.0246803,0.0149112,-0.127091,0.0141193,0.0179997,0.066798,-0.0454437,-0.014302,0.00466209,0.0278567,-0.0223669,-0.0120965,0.0160508,-0.0345119,-0.0636917,0.0397343,-0.0441433,0.0860744,-0.00829038,0.00697481,0.0738639,0.0158959,0.0582317,0.0159227,-0.00733106,0.0128666,0.0253406,0.0316194,-0.0190006,-0.0535646,0.0352068,-0.171131,0.0696699,0.0713071,-0.00871093,0.0856053,0.0298133,0.0148444,-0.0666853,-0.0356178,0.0254096,0.0259174,0.0134087,0.070133,0.0053319,-0.0350512,-0.0197571,-0.0231155,0.0135696,0.0251665,-0.0314291,0.00495782,0.00451676,0.0556743]);
+										//console.log(prediction);
+
+										// CONDITION 2
+										//Check ml.py and parsing.py for feature extraction
+
+										//Decide whether it will keep on speaking or stop speaking when clicking submit button or just stop speaking when clicking item (or let it finish installment), check what full model predicts and maybe do not mute instalment when user clicks, make it say when they click (yes the one with, or no the one with and then let them submit the questions), use the prediction to say yes the one with, or no the one with (as long as they have moved the mouse), in case of bert just put instalments until a piece is chosen or until 1 is predicted (or just keep on saying no until 1 is predicted), use yes and no files
 									}
-									// tellbutton.setAttribute("hidden", "hidden");
-								 	// tellbutton.removeAttribute("hidden");
-									// tellbutton.innerText = "Hellos";
-									//change text for tell-me-more
 
-									//Put tell-me-more button (only appears (clickable) when the robot stops talking), punish them if they click it many times or use a counter, use space key to not interfere with mouse movements
-									//Log number of tell-me-more pressed and when, also instalment and pause timings and fillers (mp3 duration for timing), result from classifier (bert, mouse - features and prediction), check code for what else to log
+									//check how i can make it not speak the next instalment after clicking (create functions and decide whether to call them or not)
+									instalments_played = instalments_played + 1;
+									if (instalments_played < 5 && stop_instalments == 0){
+										playInstalment();
+									}
 
-									//Import instructions bert from csv per condition and letter
-
-									//var prediction = new RandomForestClassifier2().predict([0.0772081,0.0803651,-0.0384032,0.0609297,-0.0351845,-0.0259474,0.0626215,0.0508008,0.0865968,-0.0312931,0.0277823,0.0561066,-0.0563539,0.0341416,-0.0364062,-0.0464845,0.0295061,-0.0164982,-0.0337172,-0.0044252,0.0336823,0.020655,-0.0329089,-0.0381185,-0.0122121,0.0320613,-0.00141594,0.075691,0.0547309,-0.0346745,0.00762394,0.0314017,0.0253145,-0.014009,-0.0394748,-0.0165162,0.00316187,0.119428,0.0627826,-0.0218815,0.0216069,-0.0386683,0.115342,0.0398415,-0.0288027,0.0283676,-0.00744526,-0.0313471,0.0623556,-0.0556016,0.0929476,-0.0994564,-0.0205227,-0.00228431,-0.015676,-0.0108526,0.016442,0.0341242,0.0212879,0.00852662,0.0558656,-0.0269754,-0.0104997,0.0186907,-0.0364256,-0.0260404,-0.0437328,-0.105722,0.0217009,-0.0366236,0.0605504,0.063658,-0.0152086,-0.0101903,-0.0159323,-0.112935,0.0645995,-0.00371464,0.0204621,0.163239,-0.108957,0.009359,0.0505502,0.0656617,-0.026718,-0.0059793,0.0787372,-0.0493157,-0.0292224,-0.0446032,-0.0372393,0.052956,-0.0367808,0.00669663,0.0667428,0.0143543,0.0233115,0.0287644,-0.0832575,0.0369081,0.0684081,0.00692129,-0.0260948,-0.0123904,0.0367239,-0.0335766,0.0416821,0.0263691,0.0305928,0.015874,-0.00427035,0.00750225,0.0329159,0.022365,-0.0316991,-0.0737661,-0.0435961,-0.0126497,-0.0059066,-0.022053,0.0562888,-0.0155755,-0.0435856,-0.0527597,0.000748956,0.0275491,-0.0118648,-7.00376e-33,-0.0174835,0.107402,0.0232354,-0.0175243,0.0317865,-0.000305519,-0.017368,-0.0690698,0.0232435,0.10422,0.00213073,-0.0479719,-0.0843131,0.115979,0.100222,-0.108056,-0.028337,0.00740181,-0.0195842,-0.0046073,-0.0365908,0.0237603,-0.0252964,0.0691873,0.0449437,0.0468235,0.0305531,-0.0413801,0.0533128,0.0584266,0.0012592,0.0674411,-0.0149923,-0.0767481,0.00544408,0.00764433,0.0589764,-0.0210428,0.0202517,0.0223066,0.0353339,-0.00431806,0.0151498,-0.0279542,0.0103215,-0.0445356,0.0852459,-0.0323394,-0.0226315,-0.00710403,0.00953955,0.000817031,0.0376713,0.00817364,0.038481,-0.0170865,0.0226263,-0.0490543,0.0214698,0.0525435,0.00155974,-0.0265622,0.0670795,-0.0268172,-0.0288657,0.0165248,-0.0103034,-0.0174122,-0.05115,0.0198236,-0.0876757,-0.0505676,0.0354608,0.0198631,-0.118076,-0.0165143,-0.0567323,-0.0431915,0.0669109,-0.0321928,-0.0672177,-0.0337936,0.00496956,-0.149575,-0.0546336,-0.0747938,-0.00971669,-0.0643564,0.00575195,-0.0883001,-0.0897463,-0.057602,0.00144693,-0.0118389,0.0101529,5.6477e-33,-0.150682,-0.0148389,-0.0645526,0.0965607,-0.0068177,-0.00609765,0.0559857,0.0527323,-0.0155959,0.0536039,-0.00654579,0.0312108,-2.51455e-05,-0.00895755,0.0568212,0.0771985,0.0152792,0.0214575,-0.0407892,-0.064339,0.0427209,-0.0718264,0.08459,0.0093674,0.0484821,0.123596,-0.0889202,-0.0935811,-0.051313,0.0674169,-0.0404031,-0.0843048,-0.0904227,-0.0701044,-0.036587,-0.0412682,0.0416026,-0.0642043,0.00702004,-0.112299,0.0488883,-0.0372907,0.0138307,0.142916,-0.00489448,0.00679804,0.126302,0.0189228,0.034996,0.000640444,0.00250635,-0.0059481,-0.00529968,0.0782623,-0.00905237,-0.011613,-0.0945534,0.0306219,0.0292424,0.0328836,0.0101771,-0.0143687,-0.0380738,-0.00564071,-0.0090425,0.0108221,0.0195598,-0.0413974,-0.0855022,0.108446,0.0324001,0.0638705,-0.0306398,-0.0110647,0.0287993,0.025878,0.0240931,-0.0155799,-0.0557096,0.119118,-0.0455631,-0.0132902,0.0532707,-0.0801614,0.0408001,-0.0197626,-0.0746953,0.105678,-0.0736966,-0.00857652,-0.0368687,0.0856333,-0.0827084,0.038303,0.00922276,-2.20056e-08,-0.00671652,-0.0286192,0.0158541,-0.0993866,0.00390309,-0.0575837,-0.0201865,-0.0150515,-0.0260026,-0.0624948,0.0246803,0.0149112,-0.127091,0.0141193,0.0179997,0.066798,-0.0454437,-0.014302,0.00466209,0.0278567,-0.0223669,-0.0120965,0.0160508,-0.0345119,-0.0636917,0.0397343,-0.0441433,0.0860744,-0.00829038,0.00697481,0.0738639,0.0158959,0.0582317,0.0159227,-0.00733106,0.0128666,0.0253406,0.0316194,-0.0190006,-0.0535646,0.0352068,-0.171131,0.0696699,0.0713071,-0.00871093,0.0856053,0.0298133,0.0148444,-0.0666853,-0.0356178,0.0254096,0.0259174,0.0134087,0.070133,0.0053319,-0.0350512,-0.0197571,-0.0231155,0.0135696,0.0251665,-0.0314291,0.00495782,0.00451676,0.0556743]);
-									//console.log(prediction);
-
-									//Check ml.py and parsing.py for feature extraction
-
-									//Decide whether it will keep on speaking or stop speaking when clicking submit button or just stop speaking when clicking item (or let it finish installment), check what full model predicts and maybe do not mute instalment when user clicks, make it say when they click (yes the one with, or no the one with and then let them submit the questions), use the prediction to say yes the one with, or no the one with (as long as they have moved the mouse), in case of bert just put instalments until a piece is chosen or until 1 is predicted (or just keep on saying no until 1 is predicted), use yes and no files
+									//Log number of instalments and pause timings and fillers (mp3 duration for timing), result from classifier (bert, mouse - features and prediction), check code for what else to log
+									//this.add_info('audio_duration'+instalments_played+1, this.instruction.duration, 'shape');
 								}
-
-								//check how i can make it not speak the next instalment after clicking (create functions and decide whether to call them or not)
-								instalments_played = instalments_played + 1;
-								if (instalments_played < 5 && stop_instalments == 0){
-									playInstalment();
-								}
-
-								//this.add_info('audio_duration'+instalments_played+1, this.instruction.duration, 'shape');
+								instalment_decision();
 							}
-							instalment_decision();
-						}
-						if (instalments_played < 5){
-							playInstalment();
+							if (instalments_played < 5){
+								playInstalment();
+							}
+
+						} else { // CONDITION == 3 (Tell-Me-More)
+							// hide tmm button
+							if (instalments_played == 0) {
+								tellbutton.setAttribute("hidden", "hidden");
+							}
+
+							var played_filler = [0, 0, 0, 0, 0];
+							var played_instalment = [0, 0, 0, 0, 0];
+							var showed_button = [0, 0, 0, 0, 0];
+
+							function tmmLoop() {
+								// start pause (with filler) after instalment audio duration
+								if ((fillers[instalments_played] == 1 || fillers[instalments_played] == 2) && played_filler[instalments_played] == 0) {//uh and uhm
+									// wait before playing filler
+									function tmmFiller() {
+										//play um or uhm
+										if (fillers[instalments_played] == 1) {
+											let uh_file = '../resources/audio/uh.mp3';
+											uh_audio = new Audio(uh_file);
+											uh_audio.oncanplaythrough = (event) => {
+												uh_audio.play();
+											};
+										} else {
+											let uhm_file = '../resources/audio/uhm.mp3';
+											uhm_audio = new Audio(uhm_file);
+											uhm_audio.oncanplaythrough = (event) => {
+												uhm_audio.play();
+											};
+										}
+									}
+
+									var filler_in = (audio_durations[instalments_played] + (pause_durations[instalments_played] / 2)) - 0.5; //minus 0.5 for the 1s loop
+									setTimeout(tmmFiller, filler_in * 1000); //play filler after filler_in seconds
+									played_filler[instalments_played] = 1;
+								}
+
+								// Play first instalment and then show button and wait for button press
+								function tmm_playInstalment() {
+									instalment1 = new Audio(instr_file1);
+									instalment2 = new Audio(instr_file2);
+									instalment3 = new Audio(instr_file3);
+									instalment4 = new Audio(instr_file4);
+									instalment5 = new Audio(instr_file5);
+
+									if (played_instalment[instalments_played] == 0) {
+										if (instalments_played == 0) { //play first instalment
+											instalment1.oncanplaythrough = (event) => {
+												instalment1.play();
+												played_instalment[instalments_played] = 1;
+												instalments_played = instalments_played + 1;
+											};
+
+											tmm_count = 0; //update button counter with 0
+											tellbutton.innerText = "Tell Me More! (" + tmm_count + ")"; //update text of new button
+											tellbutton.setAttribute("hidden", "hidden");
+										} else { //play the rest of the instalments
+											// show button and decide whether to play the rest of the instalments (and fillers)
+											function tmmFunction() {
+												instalment1 = new Audio(instr_file1);
+												instalment2 = new Audio(instr_file2);
+												instalment3 = new Audio(instr_file3);
+												instalment4 = new Audio(instr_file4);
+												instalment5 = new Audio(instr_file5);
+
+												tmm_count = tmm_count + 1;
+												tellbutton.innerText = "Tell Me More! (" + tmm_count + ")";
+												setTimeout(function() {tellbutton.setAttribute("hidden", "hidden");}, 1000);
+
+												// play next instalment
+												if (instalments_played == 1) {
+													instalment2.oncanplaythrough = (event) => {
+														instalment2.play();
+													};
+												} else if (instalments_played == 2) {
+													instalment3.oncanplaythrough = (event) => {
+														instalment3.play();
+													};
+												} else if (instalments_played == 3) {
+													instalment4.oncanplaythrough = (event) => {
+														instalment4.play();
+													};
+												} else if (instalments_played == 4) {
+													instalment5.oncanplaythrough = (event) => {
+														instalment5.play();
+													};
+												}
+
+												played_instalment[instalments_played] = 1;
+												instalments_played = instalments_played + 1;
+											}
+
+											// show button after pause
+											function showButton() {
+												tellbutton.removeAttribute("hidden");
+											}
+
+											if (showed_button[instalments_played] == 0) {
+												var button_in = audio_durations[instalments_played] + pause_durations[instalments_played];
+												setTimeout(showButton, button_in * 1000); //show button after button_in seconds
+												showed_button[instalments_played] = 1;
+											}
+
+											tellbutton.onclick = function() {tmmFunction()};
+										}
+									}
+								}
+
+								var instalment_in = audio_durations[instalments_played] + pause_durations[instalments_played];
+								setTimeout(tmm_playInstalment, instalment_in * 1000); //play instalment after instalment_in seconds
+
+							  if(stop_instalments == 0) { // keep on playing every second until item click
+							    setTimeout(tmmLoop, 1000);
+							  }
+							}
+
+							if (instalments_played < 5){
+								tmmLoop();
+							}
 						}
 
+						//this.add_info('audio_duration'+instalments_played+1, this.instruction.duration, 'shape');
+						//Log number of tell-me-more pressed and when, also instalment and pause timings and fillers (mp3 duration for timing), result from classifier (bert, mouse - features and prediction), check code for what else to log
+						//Check all conditions that work and that mouse data is also gathered in json files
 						//Make an estimation of uncertainty in real time and visualise it to detect probability on whether to give another instalment, like Gabriel incremental ASR paper and video
-					}//check indetation from up START=0 until here
+					}
 				} else {
 					console.log(`Please select ${this.shape}`);
 					this._start_instruction(); // start tracking etc.
