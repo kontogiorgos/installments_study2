@@ -198,6 +198,7 @@ $(document).ready(function() {
 								break;
 							case 'Z':
 								audio_durations = durations_Z;
+								console.log(bert_F[0]);
 								break;
 						}
 
@@ -249,7 +250,8 @@ $(document).ready(function() {
 										// decide whether to play the rest of the instalments
 										if (CONDITION == 1) { //CONDITION 1
 											// import instructions bert per letter
-											
+											console.log(current_shape, instalments_played);
+											//instalments_played-1
 
 											console.log(bert_F1);
 
