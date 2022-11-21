@@ -23,6 +23,7 @@ $(document).ready(function() {
 	var mouse_movement;
 	var previous_mouse_movement_length = 0;
 	var step_mouse_movement = [];
+	var mouse_moved = 0;
 
 	// Audio durations (only for elephant 1)
 	var durations_F = [1.22, 1.39, 1.22, 0.98, 2.42, 2.52];
@@ -264,6 +265,7 @@ $(document).ready(function() {
 										};
 
 										previous_mouse_movement_length = mouse_movement.length;
+										mouse_moved = 0;
 
 									} else { // decide whether to play the rest of the instalments
 
@@ -272,22 +274,147 @@ $(document).ready(function() {
 										previous_mouse_movement_length = previous_mouse_movement_length + step_mouse_movement.length;
 
 										// initialise prediction variable
-										var prediction = 0;
+										var prediction = -1;
 
 										if (CONDITION == 1) { // CONDITION 1 (BERT)
 											// take bert per letter and instalment and make prediction
 											prediction = new RandomForestClassifier2().predict(bert_letter[instalments_played-1]);
+											mouse_moved = 1;
 
 										} else { // CONDITION 2 (Mouse)
-											
-											//step_mouse_movement
-											//prediction = new RandomForestClassifier2().predict(bert_letter[instalments_played-1]);
+											// check if mouse has moved in the square
+											var mouse_moved_count = step_mouse_movement.filter(mouse => mouse.x === -1);
+											if (step_mouse_movement.length != mouse_moved_count.length) {
+												mouse_moved = 1;
+											}
 
-											//read mouse and check if they have moved it, make it say when they click (yes or no) as long as they have moved the mouse
-											//Check ml.py and parsing.py for feature extraction
+											var mouse_x_list = [];
+											var mouse_y_list = [];
+											var distance = [];
+											var dis_mean, dis_std, dis_min, dis_max, dis_range, dis_slope;
+
+											for (let z = 0; z < step_mouse_movement.length; z++) {
+												if (step_mouse_movement[z].x != -1) {
+													mouse_x_list.push(step_mouse_movement[z].x);
+													mouse_y_list.push(step_mouse_movement[z].y);
+													var a = step_mouse_movement[z].x - target.x;
+													var b = step_mouse_movement[z].y - target.y;
+													var dist = Math.sqrt(a*a + b*b);
+													distance.push(dist);
+												} else { // if x and y are -1 replace with a very large number (1000,1000) to indicate it has not moved yet
+													mouse_x_list.push(1000);
+													mouse_y_list.push(1000);
+													var a = 1000 - target.x;
+													var b = 1000 - target.y;
+													var dist = Math.sqrt(a*a + b*b);
+													distance.push(dist);
+												}
+											}
+
+											if (distance.length >= 2) {
+												dis_mean = math.mean(distance);
+												dis_std = math.std(distance);
+												dis_min = math.min(distance);
+												dis_max = math.max(distance);
+												dis_range = dis_max - dis_min;
+
+												var x_values = [];
+												var y_values = distance;
+												for (var r = 0; r < distance.length; r++) {
+													x_values[r] = r;
+												}
+												var x_mean = x_values.reduce((a, b) => a + b, 0) / x_values.length;
+												var y_mean = y_values.reduce((a, b) => a + b, 0) / y_values.length;
+												var slope_numerator = 0, slope_denominator = 0;
+												for (var ri = 0; ri < x_values.length; ri++) {
+												  slope_numerator += (x_values[ri] - x_mean) * (y_values[ri] - y_mean);
+												  slope_denominator += Math.pow((x_values[ri] - x_mean), 2);
+												}
+												dis_slope = slope_numerator / slope_denominator;
+											}
+
+											var distance_travelled = 0;
+											var previous_direction_x = '0';
+											var direction_change_x = 0;
+											var previous_direction_y = '0';
+											var direction_change_y = 0;
+											var mad_list = [];
+
+											for (var q = 1; q < mouse_x_list.length; q++) {
+												if (mouse_x_list[q] != 1000) {
+													var point1_t = [mouse_x_list[q-1], mouse_y_list[q-1]];
+													var point2_t = [mouse_x_list[q], mouse_y_list[q]];
+													if (point2_t[0] - point1_t[0] != 0) {
+														if (point2_t[0] > point1_t[0]) {
+															if (previous_direction_x != 'plus') {
+																direction_change_x = direction_change_x + 1;
+																previous_direction_x = 'plus';
+															}
+														} else {
+															if (previous_direction_x != 'minus') {
+																direction_change_x = direction_change_x + 1;
+																previous_direction_x = 'minus';
+															}
+														}
+													}
+													if (point2_t[1] - point1_t[1] != 0) {
+														if (point2_t[1] > point1_t[1]) {
+															if (previous_direction_y != 'plus') {
+																direction_change_y = direction_change_y + 1;
+																previous_direction_y = 'plus';
+															}
+														} else {
+															if (previous_direction_y != 'minus') {
+																direction_change_y = direction_change_y + 1;
+																previous_direction_y = 'minus';
+															}
+														}
+													}
+													var tx = point2_t[0] - point1_t[0];
+													var ty = point2_t[1] - point1_t[1];
+													var dist_t = Math.sqrt(tx*tx + ty*ty);
+													distance_travelled = distance_travelled + dist_t;
+													var mad_distance = math.mad([1000, 1000], [target.x, target.y], [mouse_x_list[q], mouse_y_list[q]]);
+													mad_list.push(mad_distance);
+												}
+											}
+
+											var velocity = 0;
+											if (mouse_x_list.length > 0) {
+												velocity = distance_travelled / mouse_x_list.length;
+											}
+
+											var vertices = {};
+											vertices.x = mouse_x_list;
+											vertices.x.push(target.x);
+											vertices.y = mouse_y_list;
+											vertices.y.push(target.y);
+											var auc = 0;
+											for (var i = 0, l = vertices.x.length; i < l; i++) {
+												var addX = vertices.x[i];
+												var addY = vertices.y[i == vertices.x.length - 1 ? 0 : i + 1];
+												var subX = vertices.x[i == vertices.x.length - 1 ? 0 : i + 1];
+												var subY = vertices.y[i];
+												auc += (addX * addY * 0.5);
+												auc -= (subX * subY * 0.5);
+											}
+
+											var meanad, maxad;
+											if (mad_list.length > 0) {
+												meanad = math.mean(mad_list);
+												maxad = math.max(mad_list);
+											} else {
+												meanad = 0;
+												maxad = 0;
+											}
+
+											var features = [mouse_moved, dis_mean, dis_std, dis_min, dis_max, dis_range, dis_slope, distance_travelled, velocity, direction_change_x, direction_change_y, auc, meanad, maxad];
+											features = features.concat(bert_letter[instalments_played-1]);
+
+											prediction = new RandomForestClassifier1().predict(features);
 										}
 
-										if (prediction == 0) { //predicted that user will do not-correct
+										if (prediction == 0 && mouse_moved == 1 && stop_instalments == 0) { //predicted that user will do not-correct
 											// define which no file will be played and load no files (hm, no, notthisone)
 											var no_num = Math.floor(Math.random() * 3 + 1);
 											var no_file = '';
@@ -303,7 +430,7 @@ $(document).ready(function() {
 												no_audio.play();
 											};
 
-										} else { //predicted that user will do correct
+										} else if (prediction == 1 && mouse_moved == 1 && stop_instalments == 0) { //predicted that user will do correct
 											// define which no file will be played and load yes files (yeah, yes, yup)
 											var yes_num = Math.floor(Math.random() * 3 + 1);
 											var yes_file = '';
@@ -322,30 +449,29 @@ $(document).ready(function() {
 											stop_instalments = 1;
 										}
 
-										// play yes/no and then wait before playing instalment
-										await sleep(1200); // 1.2 seconds set empirically
+										// play yes/no and then wait before playing instalment (only in condition1 or condition2 after moving mouse)
+										if (mouse_moved == 1) {
+											await sleep(1200); // 1.2 seconds set empirically
+										}
 
 										// play next instalment
-										if (instalments_played == 1) {
+										if (instalments_played == 1 && stop_instalments == 0) {
 											instalment2.play();
-										} else if (instalments_played == 2) {
+										} else if (instalments_played == 2 && stop_instalments == 0) {
 											instalment3.play();
-										} else if (instalments_played == 3) {
+										} else if (instalments_played == 3 && stop_instalments == 0) {
 											instalment4.play();
-										} else if (instalments_played == 4) {
+										} else if (instalments_played == 4 && stop_instalments == 0) {
 											instalment5.play();
 										}
 
-
-										console.log(prediction, current_shape, instalments_played);
-										//check how i can make it not speak the next instalment after clicking (call interrupt function)
+										console.log(instalments_played, '-', prediction);
 									}
 
 									instalments_played = instalments_played + 1;
 									if (instalments_played < 5 && stop_instalments == 0){
 										playInstalment();
 									}
-
 
 									//Log number of instalments and pause timings and fillers (mp3 duration for timing), result from classifier (bert, mouse - features and prediction), check code for what else to log
 									//this.add_info('audio_duration'+instalments_played+1, this.instruction.duration, 'shape');
