@@ -19,11 +19,37 @@ $(document).ready(function() {
 	var no_audio;
 
 	var stop_instalments = 0;
-	var tmm_count = 0;
+	var instalments_played;
+	var audio_durations = [];
+	var pause_durations = [];
+	var fillers = [];
+
 	var mouse_movement;
 	var previous_mouse_movement_length = 0;
 	var step_mouse_movement = [];
+
 	var mouse_moved = 0;
+	var mouse_moveds = [-1, -1, -1, -1];
+	var dis_means = [-1, -1, -1, -1];
+	var dis_stds = [-1, -1, -1, -1];
+	var dis_mins = [-1, -1, -1, -1];
+	var dis_maxs = [-1, -1, -1, -1];
+	var dis_ranges = [-1, -1, -1, -1];
+	var dis_slopes = [-1, -1, -1, -1];
+	var distance_travelleds = [-1, -1, -1, -1];
+	var velocitys = [-1, -1, -1, -1];
+	var direction_change_xs = [-1, -1, -1, -1];
+	var direction_change_ys = [-1, -1, -1, -1];
+	var aucs = [-1, -1, -1, -1];
+	var meanads = [-1, -1, -1, -1];
+	var maxads = [-1, -1, -1, -1];
+
+	var tmm_count = 0;
+	var tmm_when = 0;
+	var tmm_whens = [-1, -1, -1, -1];
+
+	var prediction;
+	var predictions = [-1, -1, -1, -1];
 
 	// Audio durations (only for elephant 1)
 	var durations_F = [1.22, 1.39, 1.22, 0.98, 2.42, 2.52];
@@ -158,15 +184,14 @@ $(document).ready(function() {
 						let [pause_duration3, filler3] = pauseFunction();
 						let [pause_duration4, filler4] = pauseFunction();
 						let [pause_duration5, filler5] = pauseFunction();
-						var pause_durations = [pause_duration1, pause_duration2, pause_duration3, pause_duration4, pause_duration5];
-						var fillers = [filler1, filler3, filler3, filler4, filler5];
+						pause_durations = [pause_duration1, pause_duration2, pause_duration3, pause_duration4, pause_duration5];
+						fillers = [filler1, filler3, filler3, filler4, filler5];
 
 						// use pause and take decision to play instalment (start with installment 0, then add pause and installment 1, then monitor user and do the same)
-						var instalments_played = 0;
+						instalments_played = 0;
 						stop_instalments = 0; //when the user clicks it stops uttering instalments
 
 						// get current instalment audio duration
-						var audio_durations = [];
 						var bert_letter = [];
 						switch (current_shape) {
 							case 'F':
@@ -274,18 +299,21 @@ $(document).ready(function() {
 										previous_mouse_movement_length = previous_mouse_movement_length + step_mouse_movement.length;
 
 										// initialise prediction variable
-										var prediction = -1;
+										prediction = -1;
 
 										if (CONDITION == 1) { // CONDITION 1 (BERT)
 											// take bert per letter and instalment and make prediction
 											prediction = new RandomForestClassifier2().predict(bert_letter[instalments_played-1]);
+											predictions[instalments_played-1] = prediction;
 											mouse_moved = 1;
+											mouse_moveds[instalments_played-1] = mouse_moved;
 
 										} else { // CONDITION 2 (Mouse)
 											// check if mouse has moved in the square
 											var mouse_moved_count = step_mouse_movement.filter(mouse => mouse.x === -1);
 											if (step_mouse_movement.length != mouse_moved_count.length) {
 												mouse_moved = 1;
+												mouse_moveds[instalments_played-1] = mouse_moved;
 											}
 
 											var mouse_x_list = [];
@@ -317,6 +345,11 @@ $(document).ready(function() {
 												dis_min = math.min(distance);
 												dis_max = math.max(distance);
 												dis_range = dis_max - dis_min;
+												dis_means[instalments_played-1] = dis_mean;
+												dis_stds[instalments_played-1] = dis_std;
+												dis_mins[instalments_played-1] = dis_min;
+												dis_maxs[instalments_played-1] = dis_max;
+												dis_ranges[instalments_played-1] = dis_range;
 
 												var x_values = [];
 												var y_values = distance;
@@ -331,6 +364,7 @@ $(document).ready(function() {
 												  slope_denominator += Math.pow((x_values[ri] - x_mean), 2);
 												}
 												dis_slope = slope_numerator / slope_denominator;
+												dis_slopes[instalments_played-1] = dis_slope;
 											}
 
 											var distance_travelled = 0;
@@ -349,11 +383,13 @@ $(document).ready(function() {
 															if (previous_direction_x != 'plus') {
 																direction_change_x = direction_change_x + 1;
 																previous_direction_x = 'plus';
+																direction_change_xs[instalments_played-1] = direction_change_x;
 															}
 														} else {
 															if (previous_direction_x != 'minus') {
 																direction_change_x = direction_change_x + 1;
 																previous_direction_x = 'minus';
+																direction_change_xs[instalments_played-1] = direction_change_x;
 															}
 														}
 													}
@@ -362,11 +398,13 @@ $(document).ready(function() {
 															if (previous_direction_y != 'plus') {
 																direction_change_y = direction_change_y + 1;
 																previous_direction_y = 'plus';
+																direction_change_ys[instalments_played-1] = direction_change_y;
 															}
 														} else {
 															if (previous_direction_y != 'minus') {
 																direction_change_y = direction_change_y + 1;
 																previous_direction_y = 'minus';
+																direction_change_ys[instalments_played-1] = direction_change_y;
 															}
 														}
 													}
@@ -376,12 +414,14 @@ $(document).ready(function() {
 													distance_travelled = distance_travelled + dist_t;
 													var mad_distance = math.mad([1000, 1000], [target.x, target.y], [mouse_x_list[q], mouse_y_list[q]]);
 													mad_list.push(mad_distance);
+													distance_travelleds[instalments_played-1] = distance_travelled;
 												}
 											}
 
 											var velocity = 0;
 											if (mouse_x_list.length > 0) {
 												velocity = distance_travelled / mouse_x_list.length;
+												velocitys[instalments_played-1] = velocity;
 											}
 
 											var vertices = {};
@@ -397,6 +437,7 @@ $(document).ready(function() {
 												var subY = vertices.y[i];
 												auc += (addX * addY * 0.5);
 												auc -= (subX * subY * 0.5);
+												aucs[instalments_played-1] = auc;
 											}
 
 											var meanad, maxad;
@@ -407,11 +448,14 @@ $(document).ready(function() {
 												meanad = 0;
 												maxad = 0;
 											}
+											meanads[instalments_played-1] = meanad;
+											maxads[instalments_played-1] = maxad;
 
 											var features = [mouse_moved, dis_mean, dis_std, dis_min, dis_max, dis_range, dis_slope, distance_travelled, velocity, direction_change_x, direction_change_y, auc, meanad, maxad];
 											features = features.concat(bert_letter[instalments_played-1]);
 
 											prediction = new RandomForestClassifier1().predict(features);
+											predictions[instalments_played-1] = prediction;
 										}
 
 										if (prediction == 0 && mouse_moved == 1 && stop_instalments == 0) { //predicted that user will do not-correct
@@ -445,8 +489,6 @@ $(document).ready(function() {
 											yes_audio.oncanplaythrough = (event) => {
 												yes_audio.play();
 											};
-
-											stop_instalments = 1;
 										}
 
 										// play yes/no and then wait before playing instalment (only in condition1 or condition2 after moving mouse)
@@ -465,16 +507,17 @@ $(document).ready(function() {
 											instalment5.play();
 										}
 
-										console.log(instalments_played, '-', prediction);
+										if (prediction == 1) {
+											stop_instalments = 1;
+										}
+
+										console.log(instalments_played, '->', prediction);
 									}
 
 									instalments_played = instalments_played + 1;
 									if (instalments_played < 5 && stop_instalments == 0){
 										playInstalment();
 									}
-
-									//Log number of instalments and pause timings and fillers (mp3 duration for timing), result from classifier (bert, mouse - features and prediction), check code for what else to log
-									//this.add_info('audio_duration'+instalments_played+1, this.instruction.duration, 'shape');
 								}
 								instalment_decision();
 							}
@@ -548,6 +591,8 @@ $(document).ready(function() {
 
 												tmm_count = tmm_count + 1;
 												tellbutton.innerText = "Tell Me More! (" + tmm_count + ")";
+												tmm_when = mouse_movement.length / 5;
+												tmm_whens[instalments_played-1] = tmm_when;
 												setTimeout(function() {tellbutton.setAttribute("hidden", "hidden");}, 1000);
 
 												// play next instalment
@@ -601,11 +646,6 @@ $(document).ready(function() {
 								tmmLoop();
 							}
 						}
-
-						//this.add_info('audio_duration'+instalments_played+1, this.instruction.duration, 'shape');
-						//Log number of tell-me-more pressed and when, also instalment and pause timings and fillers (mp3 duration for timing), result from classifier (bert, mouse - features and prediction), check code for what else to log
-						//Check all conditions that work and that mouse data is also gathered in json files
-						//Make an estimation of uncertainty in real time and visualise it to detect probability on whether to give another instalment, like Gabriel incremental ASR paper and video
 					}
 				} else {
 					console.log(`Please select ${this.shape}`);
@@ -642,6 +682,51 @@ $(document).ready(function() {
 
 				// stop playing instalments
 				stop_instalments = 1;
+
+				// log instalment data
+				this.add_info('instalments_played', instalments_played, 'shape');
+				this.add_info('fillers', fillers, 'shape');
+				this.add_info('audio_durations', audio_durations, 'shape');
+				this.add_info('pause_durations', pause_durations, 'shape');
+				if (CONDITION == 2) { // CONDITION 2
+					this.add_info('mouse_moveds', mouse_moveds, 'shape');
+					mouse_moveds = [-1, -1, -1, -1];
+					this.add_info('dis_means', dis_means, 'shape');
+					dis_means = [-1, -1, -1, -1];
+					this.add_info('dis_stds', dis_stds, 'shape');
+					dis_stds = [-1, -1, -1, -1];
+					this.add_info('dis_mins', dis_mins, 'shape');
+					dis_mins = [-1, -1, -1, -1];
+					this.add_info('dis_maxs', dis_maxs, 'shape');
+					dis_maxs = [-1, -1, -1, -1];
+					this.add_info('dis_ranges', dis_ranges, 'shape');
+					dis_ranges = [-1, -1, -1, -1];
+					this.add_info('dis_slopes', dis_slopes, 'shape');
+					dis_slopes = [-1, -1, -1, -1];
+					this.add_info('distance_travelleds', distance_travelleds, 'shape');
+					distance_travelleds = [-1, -1, -1, -1];
+					this.add_info('velocitys', velocitys, 'shape');
+					velocitys = [-1, -1, -1, -1];
+					this.add_info('direction_change_xs', direction_change_xs, 'shape');
+					direction_change_xs = [-1, -1, -1, -1];
+					this.add_info('direction_change_ys', direction_change_ys, 'shape');
+					direction_change_ys = [-1, -1, -1, -1];
+					this.add_info('aucs', aucs, 'shape');
+					aucs = [-1, -1, -1, -1];
+					this.add_info('meanads', meanads, 'shape');
+					meanads = [-1, -1, -1, -1];
+					this.add_info('maxads', maxads, 'shape');
+					maxads = [-1, -1, -1, -1];
+				}
+				if (CONDITION == 3) { // CONDITION 3
+					this.add_info('tmm_count', tmm_count, 'shape');
+					this.add_info('tmm_whens', tmm_whens, 'shape');
+					tmm_whens = [-1, -1, -1, -1];
+				}
+				if (CONDITION != 3) { // CONDITION 1 or 2
+					this.add_info('predictions', predictions, 'shape');
+					predictions = [-1, -1, -1, -1];
+				}
 			}
 
 			// Note: The highlighting only really makes sense for single-piece tasks, as the highlights are removed as soon as the next instruction is generated, highlight correct shape in green
@@ -697,7 +782,7 @@ $(document).ready(function() {
 		audiotest() {
 			let test_file = `../resources/audio/intro${ELEPHANT}.mp3`;
 			let test_audio = new Audio(test_file);
-			//test_audio.oncanplaythrough = (event) => {test_audio.play();};
+			test_audio.oncanplaythrough = (event) => {test_audio.play();};
 		}
 
 		/**
