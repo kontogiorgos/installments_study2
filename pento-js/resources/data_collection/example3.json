@@ -1,0 +1,1464 @@
+{
+  "audiotest": "a",
+  "elephant": 1,
+  "condition": 3,
+  "browser_os_info": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:107.0) Gecko/20100101 Firefox/107.0",
+  "name": "a",
+  "email": "a",
+  "follow_agent": "1",
+  "start_time": "Tue Dec 13 2022 17:26:09 GMT+0100 (Central European Standard Time)",
+  "start.json": {
+    "Z20lightblue": {
+      "target_x": 100,
+      "target_y": 80,
+      "start_audio_duration": 32.856,
+      "selected": "Y10lightblue",
+      "movement": [
+        {
+          "time": 203,
+          "x": 285,
+          "y": 381
+        },
+        {
+          "time": 403,
+          "x": 301,
+          "y": 220
+        },
+        {
+          "time": 607,
+          "x": 325,
+          "y": 213
+        },
+        {
+          "time": 808,
+          "x": 326,
+          "y": 213
+        }
+      ]
+    }
+  },
+  "z.json": {
+    "Z20lightblue": {
+      "target_x": 100,
+      "target_y": 80,
+      "start_audio_duration": 1.224,
+      "selected": "Y10lightblue",
+      "movement": [
+        {
+          "time": 204,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 408,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 613,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 816,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 1020,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 1222,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 1426,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 1630,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 1834,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 2038,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 2240,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 2444,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 2649,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 2853,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 3054,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 3258,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 3463,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 3668,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 3869,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 4074,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 4276,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 4480,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 4685,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 4887,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 5087,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 5291,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 5493,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 5694,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 5899,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 6104,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 6306,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 6508,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 6713,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 6916,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 7118,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 7323,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 7528,
+          "x": 341,
+          "y": 226
+        },
+        {
+          "time": 7729,
+          "x": 334,
+          "y": 218
+        },
+        {
+          "time": 7931,
+          "x": 334,
+          "y": 218
+        },
+        {
+          "time": 8136,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 8338,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 8538,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 8741,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 8943,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 9146,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 9350,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 9553,
+          "x": 336,
+          "y": 217
+        },
+        {
+          "time": 9753,
+          "x": 321,
+          "y": 223
+        },
+        {
+          "time": 9957,
+          "x": 321,
+          "y": 223
+        },
+        {
+          "time": 10158,
+          "x": 324,
+          "y": 224
+        },
+        {
+          "time": 10364,
+          "x": 325,
+          "y": 224
+        },
+        {
+          "time": 10567,
+          "x": 325,
+          "y": 224
+        },
+        {
+          "time": 10770,
+          "x": 325,
+          "y": 224
+        },
+        {
+          "time": 10971,
+          "x": 325,
+          "y": 224
+        },
+        {
+          "time": 11173,
+          "x": 325,
+          "y": 224
+        },
+        {
+          "time": 11375,
+          "x": 325,
+          "y": 224
+        },
+        {
+          "time": 11578,
+          "x": 325,
+          "y": 224
+        }
+      ],
+      "instalments_played": 2,
+      "fillers": [
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "audio_durations": [
+        1.22,
+        2.71,
+        1.92,
+        1.2,
+        2.08,
+        1.87
+      ],
+      "pause_durations": [
+        0.15244333,
+        2.52806307,
+        1.50604086,
+        2.9246578,
+        1.239312125
+      ],
+      "tmm_count": 1,
+      "tmm_whens": [
+        8.4,
+        -1,
+        -1,
+        -1
+      ],
+      "correct": false
+    },
+    "clarity": "1",
+    "information": "1",
+    "error": false
+  },
+  "l.json": {
+    "L2lightblue": {
+      "target_x": 340,
+      "target_y": 260,
+      "start_audio_duration": 1.776,
+      "selected": "L2lightblue",
+      "movement": [
+        {
+          "time": 205,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 407,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 612,
+          "x": 361,
+          "y": 250
+        },
+        {
+          "time": 818,
+          "x": 341,
+          "y": 282
+        },
+        {
+          "time": 1019,
+          "x": 343,
+          "y": 285
+        }
+      ],
+      "instalments_played": 0,
+      "fillers": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "audio_durations": [
+        1.77,
+        1.2,
+        2.59,
+        2.42,
+        1.65,
+        1.96
+      ],
+      "pause_durations": [
+        1.5452034,
+        0.11848853499999998,
+        2.37819015,
+        1.15882105,
+        2.08217505
+      ],
+      "tmm_count": 1,
+      "tmm_whens": [
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "correct": true
+    },
+    "clarity": "1",
+    "information": "1",
+    "error": false
+  },
+  "n.json": {
+    "N15lightblue": {
+      "target_x": 20,
+      "target_y": 260,
+      "start_audio_duration": 1.104,
+      "selected": "L2lightblue",
+      "movement": [
+        {
+          "time": 205,
+          "x": 364,
+          "y": 273
+        },
+        {
+          "time": 405,
+          "x": 352,
+          "y": 310
+        },
+        {
+          "time": 605,
+          "x": 353,
+          "y": 312
+        }
+      ],
+      "instalments_played": 0,
+      "fillers": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "audio_durations": [
+        1.1,
+        1.44,
+        3.38,
+        1.92,
+        0.96,
+        1.7
+      ],
+      "pause_durations": [
+        1.76134201,
+        2.9246578,
+        1.79244917,
+        1.59421618,
+        1.09272778
+      ],
+      "tmm_count": 0,
+      "tmm_whens": [
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "correct": false
+    },
+    "clarity": "1",
+    "information": "1",
+    "error": false
+  },
+  "v.json": {
+    "V13lightblue": {
+      "target_x": 20,
+      "target_y": 300,
+      "start_audio_duration": 1.584,
+      "selected": "P4lightblue",
+      "movement": [
+        {
+          "time": 204,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 405,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 611,
+          "x": 328,
+          "y": 321
+        },
+        {
+          "time": 812,
+          "x": 314,
+          "y": 325
+        },
+        {
+          "time": 1012,
+          "x": 313,
+          "y": 325
+        },
+        {
+          "time": 1215,
+          "x": 313,
+          "y": 325
+        },
+        {
+          "time": 1418,
+          "x": 313,
+          "y": 325
+        },
+        {
+          "time": 1620,
+          "x": 313,
+          "y": 325
+        }
+      ],
+      "instalments_played": 0,
+      "fillers": [
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "audio_durations": [
+        1.58,
+        1.27,
+        1.84,
+        1.58,
+        2.56,
+        2.49
+      ],
+      "pause_durations": [
+        1.50604086,
+        0.19851411,
+        0.235707295,
+        1.9474147,
+        1.1403655050000001
+      ],
+      "tmm_count": 0,
+      "tmm_whens": [
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "correct": false
+    },
+    "clarity": "1",
+    "information": "1",
+    "error": false
+  },
+  "t.json": {
+    "T18lightblue": {
+      "target_x": 100,
+      "target_y": 120,
+      "start_audio_duration": 1.224,
+      "selected": "I1lightblue",
+      "movement": [
+        {
+          "time": 204,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 409,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 610,
+          "x": 355,
+          "y": 227
+        },
+        {
+          "time": 813,
+          "x": 335,
+          "y": 210
+        },
+        {
+          "time": 1015,
+          "x": 357,
+          "y": 208
+        },
+        {
+          "time": 1216,
+          "x": 357,
+          "y": 208
+        }
+      ],
+      "instalments_played": 0,
+      "fillers": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "audio_durations": [
+        1.22,
+        1.22,
+        2.37,
+        2.8,
+        1.44,
+        3.28
+      ],
+      "pause_durations": [
+        2.37819015,
+        2.65543483,
+        2.46457716,
+        1.10331874,
+        2.70366435
+      ],
+      "tmm_count": 0,
+      "tmm_whens": [
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "correct": false
+    },
+    "clarity": "1",
+    "information": "1",
+    "error": false
+  },
+  "y.json": {
+    "Y7lightblue": {
+      "target_x": 40,
+      "target_y": 300,
+      "start_audio_duration": 1.8,
+      "selected": "L2lightblue",
+      "movement": [
+        {
+          "time": 201,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 404,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 607,
+          "x": 341,
+          "y": 234
+        },
+        {
+          "time": 811,
+          "x": 339,
+          "y": 238
+        },
+        {
+          "time": 1013,
+          "x": 338,
+          "y": 239
+        }
+      ],
+      "instalments_played": 0,
+      "fillers": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "audio_durations": [
+        1.8,
+        1.68,
+        1.8,
+        1.82,
+        2.64,
+        2.92
+      ],
+      "pause_durations": [
+        2.46457716,
+        0.77020214,
+        0.79319024,
+        0.87638249,
+        1.78463226
+      ],
+      "tmm_count": 0,
+      "tmm_whens": [
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "correct": false
+    },
+    "clarity": "1",
+    "information": "1",
+    "error": false
+  },
+  "w.json": {
+    "W5lightblue": {
+      "target_x": 180,
+      "target_y": 120,
+      "start_audio_duration": 1.368,
+      "selected": "Z11lightblue",
+      "movement": [
+        {
+          "time": 200,
+          "x": 365,
+          "y": 259
+        },
+        {
+          "time": 403,
+          "x": 353,
+          "y": 285
+        },
+        {
+          "time": 608,
+          "x": 341,
+          "y": 338
+        },
+        {
+          "time": 812,
+          "x": 333,
+          "y": 340
+        }
+      ],
+      "instalments_played": 0,
+      "fillers": [
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "audio_durations": [
+        1.36,
+        1.63,
+        3.09,
+        0.96,
+        1.94,
+        1.39
+      ],
+      "pause_durations": [
+        2.37392406,
+        1.59351408,
+        1.5452034,
+        0.04214849,
+        0.6030204299999999
+      ],
+      "tmm_count": 0,
+      "tmm_whens": [
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "correct": false
+    },
+    "clarity": "1",
+    "information": "1",
+    "error": false
+  },
+  "x.json": {
+    "X9lightblue": {
+      "target_x": 180,
+      "target_y": 20,
+      "start_audio_duration": 1.32,
+      "selected": "V7lightblue",
+      "movement": [
+        {
+          "time": 202,
+          "x": 362,
+          "y": 313
+        },
+        {
+          "time": 402,
+          "x": 341,
+          "y": 332
+        },
+        {
+          "time": 603,
+          "x": 344,
+          "y": 346
+        }
+      ],
+      "instalments_played": 0,
+      "fillers": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "audio_durations": [
+        1.32,
+        1.12,
+        2.37,
+        1.03,
+        2.47,
+        0.93
+      ],
+      "pause_durations": [
+        0.35703646999999994,
+        0.11848853499999998,
+        0.70133147,
+        1.5452034,
+        1.9474147
+      ],
+      "tmm_count": 0,
+      "tmm_whens": [
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "correct": false
+    },
+    "clarity": "1",
+    "information": "1",
+    "error": false
+  },
+  "f.json": {
+    "F19lightblue": {
+      "target_x": 60,
+      "target_y": 80,
+      "start_audio_duration": 1.224,
+      "selected": "Y10lightblue",
+      "movement": [
+        {
+          "time": 204,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 406,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 611,
+          "x": 319,
+          "y": 241
+        },
+        {
+          "time": 811,
+          "x": 329,
+          "y": 234
+        }
+      ],
+      "instalments_played": 0,
+      "fillers": [
+        0,
+        0,
+        0,
+        0,
+        2
+      ],
+      "audio_durations": [
+        1.22,
+        1.39,
+        1.22,
+        0.98,
+        2.42,
+        2.52
+      ],
+      "pause_durations": [
+        0.15079048,
+        0.26110181,
+        1.59421618,
+        1.59497317,
+        0.33665937
+      ],
+      "tmm_count": 0,
+      "tmm_whens": [
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "correct": false
+    },
+    "clarity": "1",
+    "information": "1",
+    "error": false
+  },
+  "u.json": {
+    "U16lightblue": {
+      "target_x": 20,
+      "target_y": 180,
+      "start_audio_duration": 1.224,
+      "selected": "I1lightblue",
+      "movement": [
+        {
+          "time": 202,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 403,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 610,
+          "x": 385,
+          "y": 220
+        },
+        {
+          "time": 815,
+          "x": 377,
+          "y": 216
+        },
+        {
+          "time": 1016,
+          "x": 335,
+          "y": 215
+        },
+        {
+          "time": 1218,
+          "x": 343,
+          "y": 212
+        },
+        {
+          "time": 1418,
+          "x": 353,
+          "y": 213
+        }
+      ],
+      "instalments_played": 0,
+      "fillers": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "audio_durations": [
+        1.22,
+        2.92,
+        1.48,
+        2.25,
+        1.7,
+        1.92
+      ],
+      "pause_durations": [
+        0.40020839499999994,
+        0.29230663,
+        0.97399858,
+        1.71928594,
+        2.22955049
+      ],
+      "tmm_count": 0,
+      "tmm_whens": [
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "correct": false
+    },
+    "clarity": "1",
+    "information": "1",
+    "error": false
+  },
+  "p.json": {
+    "P17lightblue": {
+      "target_x": 40,
+      "target_y": 160,
+      "start_audio_duration": 1.608,
+      "selected": "I1lightblue",
+      "movement": [
+        {
+          "time": 204,
+          "x": 381,
+          "y": 211
+        },
+        {
+          "time": 409,
+          "x": 357,
+          "y": 213
+        },
+        {
+          "time": 613,
+          "x": 357,
+          "y": 213
+        }
+      ],
+      "instalments_played": 0,
+      "fillers": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "audio_durations": [
+        1.6,
+        3.52,
+        1.75,
+        1.48,
+        1.6,
+        2.04
+      ],
+      "pause_durations": [
+        0.56505629,
+        1.87806131,
+        2.37254873,
+        2.37819015,
+        2.42044455
+      ],
+      "tmm_count": 0,
+      "tmm_whens": [
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "correct": false
+    },
+    "clarity": "1",
+    "information": "1",
+    "error": false
+  },
+  "i.json": {
+    "I0lightblue": {
+      "target_x": 20,
+      "target_y": 160,
+      "start_audio_duration": 1.464,
+      "selected": "T5lightblue",
+      "movement": [
+        {
+          "time": 205,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 408,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 609,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 809,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 1011,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 1215,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 1415,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 1620,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 1824,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 2029,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 2232,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 2434,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 2637,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 2840,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 3040,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 3242,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 3447,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 3648,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 3848,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 4049,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 4251,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 4456,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 4661,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 4865,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 5069,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 5275,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 5480,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 5680,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 5886,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 6091,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 6296,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 6496,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 6701,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 6903,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 7107,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 7309,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 7510,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 7716,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 7918,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 8120,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 8324,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 8526,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 8730,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 8934,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 9137,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 9338,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 9543,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 9745,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 9950,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 10153,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 10354,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 10556,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 10760,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 10964,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 11166,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 11370,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 11573,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 11779,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 11983,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 12188,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 12391,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 12595,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 12801,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 13006,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 13209,
+          "x": -1,
+          "y": -1
+        },
+        {
+          "time": 13415,
+          "x": 361,
+          "y": 333
+        },
+        {
+          "time": 13619,
+          "x": 324,
+          "y": 317
+        },
+        {
+          "time": 13824,
+          "x": 325,
+          "y": 314
+        }
+      ],
+      "instalments_played": 2,
+      "fillers": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "audio_durations": [
+        1.46,
+        1.7,
+        1.96,
+        1.12,
+        1.15,
+        1.15
+      ],
+      "pause_durations": [
+        0.77141459,
+        1.84444156,
+        2.52806307,
+        0.69702822,
+        2.65543483
+      ],
+      "tmm_count": 1,
+      "tmm_whens": [
+        7.4,
+        -1,
+        -1,
+        -1
+      ],
+      "correct": false
+    },
+    "clarity": "1",
+    "information": "1",
+    "error": false
+  },
+  "age": "a",
+  "gender": "a",
+  "education": "a",
+  "language": "a",
+  "fluent": "1",
+  "understanding": "1",
+  "complete": "1",
+  "helpful": "1",
+  "collaborative": "1",
+  "adapted": "1",
+  "like": "1",
+  "friendly": "1",
+  "kind": "1",
+  "pleasant": "1",
+  "nice": "1",
+  "competent": "1",
+  "knowledgeable": "1",
+  "responsible": "1",
+  "intelligent": "1",
+  "sensible": "1",
+  "comply": "1",
+  "easy": "1",
+  "ci_before": true,
+  "track_device": "mouse",
+  "know_want": "a",
+  "greatest_difficulty": "a",
+  "best_strategy": "a",
+  "worst_strategy": "a",
+  "why_study": "a",
+  "comments": "a",
+  "end_time": "Tue Dec 13 2022 17:29:46 GMT+0100 (Central European Standard Time)"
+}
