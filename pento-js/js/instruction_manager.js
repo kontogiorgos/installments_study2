@@ -510,8 +510,6 @@ $(document).ready(function() {
 										if (prediction == 1) {
 											stop_instalments = 1;
 										}
-
-										console.log(instalments_played, '->', prediction);
 									}
 
 									instalments_played = instalments_played + 1;
