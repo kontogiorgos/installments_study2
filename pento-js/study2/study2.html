@@ -45,16 +45,19 @@
 		<!-- Welcome screen -->
 		<dialog id="welcome">
 			<h2>Welcome to the PENTOMINO study!</h2>
-			<p>In this study from the University of Potsdam you will be instructed by an <strong>artificial agent</strong> to pick pentomino objects.<br>
-			It is important that you can <strong>clearly hear the spoken instructions</strong>.</p>
-			<p>You can <strong>only</strong> do this study on a computer, but not on a mobile device (no tablet or phone).</p>
-			It is also important that you try to make <strong>as few mistakes as possible</strong> in the task. <strong>You will be paid more per correct answer.</strong></p>
-			If any problems occur with the interface, please let the experimenter know before you complete the task.</p>
-			<p>This task will last <strong>10 minutes.</strong></p>
-			<br>
-			<p>If you have any questions, do not hesitate to contact <strong>Dimos Kontogiorgos</strong> at kontogiorgos@uni-potsdam.de.<br></p>
-			<br>
-			<button id="welcome_done">Continue</button>
+			<p><center><img src="../resources/img/laptop.png" alt="laptop" width="350" height="160"></center></p>
+			<center><p>You will soon be instructed by an <strong>artificial agent</strong> to pick pentomino objects.<br></p></center>
+			Try to make <strong>as few mistakes as possible</strong> in the task. <strong>You will be paid 1€ more per correct answer.</strong></p>
+			<p id="payment"></p>
+			<script>
+				if (CONDITION == 3) {
+					document.getElementById("payment").innerHTML = '<p><center><img src="../resources/img/payment2.png" alt="payment" width="350" height="160"></center></p><center>Every time you ask for <strong>additional assistance (Tell-Me-More button)</strong> you will lose <strong>0.20€</strong>.</center>';
+				} else {
+					document.getElementById("payment").innerHTML = '<p><center><img src="../resources/img/payment1.png" alt="payment" width="200" height="160"></center></p>';
+				}
+			</script>
+			<p>The task will last around <strong>10 minutes</strong> and you will be paid at least <strong>5€</strong> regardless of your performance.</p>
+			<center><button id="welcome_done">Continue</button></center>
 		</dialog>
 
 		<!-- Audio test -->
@@ -74,44 +77,46 @@
 					} else {
 						agent_name = 'Peter';
 					}
-					document.getElementById("speaking").innerHTML = agent_name + ' is speaking...';
+					document.getElementById("speaking").innerHTML = '<center>' + agent_name + ' is speaking...</center>';
 				</script>
 			</h2>
 			<p id="canyouhear"></p>
 			<script>
-				document.getElementById("canyouhear").innerHTML = "Can you hear " + agent_name + "? You will need to follow spoken instructions. Try to find a quiet place where you won't be interrupted.";
+				document.getElementById("canyouhear").innerHTML = "<center>Can you hear " + agent_name + "? Find a quiet spot where you won't be interrupted.</center>";
 			</script>
 			<hr>
 			<p id="when"></p>
 			<script>
-				document.getElementById("when").innerHTML = "<strong>When " + agent_name + " stops speaking, listen to the following message and type what he said in the text box below.</strong>";
+				document.getElementById("when").innerHTML = "<center><strong>When " + agent_name + " stops speaking, listen to the following message and type what he said in the text box below.</strong></center>";
 			</script>
-			<audio controls src="../resources/audio/audiotest.mp3">
-				Your current browser does not support the <code>audio</code> element. If you can, you may want to try a different browser.
-			</audio>
+			<center>
+				<img src="../resources/img/headphones.png" alt="headphones" width="50" height="40">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<audio controls src="../resources/audio/audiotest.mp3">
+					Your current browser does not support the <code>audio</code> element. If you can, you may want to try a different browser.
+				</audio>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<img src="../resources/img/headphones.png" alt="headphones" width="50" height="40">
+			</center>
 			<p></p>
-			<input id="transcript" size="30" name="transcript"> &nbsp; What did he say? (Press the play button).
-			<p><strong>Unfortunately, if you can't hear the audio, you cannot take part in this study. You can also try another browser*.</strong></p>
+			<center><input id="transcript" size="30" name="transcript"> &nbsp; What did he say? Press the play button.</center>
+			<p><center><strong>If you can't hear the audio, you cannot take part in this study. You can also try another browser*.</strong></center></p>
 			<hr>
-			<p>*the study works properly on Chrome and Firefox on Mac, Windows and Linux. It does <strong>NOT</strong> work on Safari.</p>
-			<button id="audiotest_done">Continue</button>
+			<p><center>*the study works on Chrome and Firefox on Mac, Windows, and Linux. It does <strong>NOT</strong> work on Safari.</center></p>
+			<center><button id="audiotest_done">Continue</button></center>
 		</dialog>
 
 		<!-- Consent form -->
 		<dialog id="consent">
-			<h2>Informed consent form</h2>
+			<center><h2>Informed Consent Form</h2></center>
 			<p id="willinstruct"></p>
 			<script>
-				document.getElementById("willinstruct").innerHTML = "In this study you will assess <strong>" + agent_name + "</strong> instructing you to pick pentomino " +
-				"objects in order to build an elephant shape.<br> <strong>" + agent_name + "</strong> will instruct you what pieces to pick. " +
-				"He will then place (and may rotate/flip) the right pentominoes on the elephant.<br>" +
-				"You can see your time and how many correct pieces you found at the top right part of your screen. You can see your<br>" +
-				"overall progress on the bar below the boards.";
+				document.getElementById("willinstruct").innerHTML = "<center>In this study you will assess <strong>" + agent_name + "</strong> instructing you to pick pentomino " +
+				"objects.<br>You can see your time and your score the top right of your screen.</center>";
 			</script>
-			<p>It is important that you are fluent in English. The study is expected to last 10 minutes and is entirely voluntary.<br>
-			We collect your mouse movements and clicks as well as your responses to the questions provided.<br>
-			The questionnaire data will only be used for research purposes and may be shared with other researchers.</p>
+			<center><p>It is important that you are fluent in English. The study is voluntary and will last ~10 minutes.<br>
+			We collect your mouse movements as well as your responses to the questions provided.<br>
+			The anonymous data will only be used for research purposes and may be shared with other researchers.</p></center>
 			<hr>
+			<center>
 			<label for="name">Name:</label>
 			<input id="name" name="name">
 			<br>
@@ -119,12 +124,14 @@
 			<input type="email" id="email" name="email">
 			<br>
 			<input type="checkbox" id="consent_agree" name="consent_agree">
-			<label for="consent_agree">I have read and understood the above information. I agree to take part in the study.</label>
+			<label for="consent_agree">I have read and understood the information above. I agree to take part in the study.</label>
+			</center>
 			<hr>
 			<p id="agree"></p>
 			<script>
-				document.getElementById("agree").innerHTML = "How much are you willing to comply to <strong>" + agent_name + "'s</strong> instructions (on Pentomino objects)?";
+				document.getElementById("agree").innerHTML = "<center>How much are you willing to comply to <strong>" + agent_name + "'s</strong> instructions?</center>";
 			</script>
+			<center>
 			<label for="follow_agent1">very little</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<label for="follow_agent1">&nbsp;1<br/>
 				<input type="radio" name="follow_agent" value=1 id="follow_agent1"/>
@@ -148,8 +155,11 @@
 				<input type="radio" name="follow_agent" value=7 id="follow_agent7"/>
 			</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<label for="follow_agent7">a lot</label>
-			<br><br>
+			</center>
+			<br>
+			<center>
 			<button id="consent_done">Submit & Continue</button>
+			</center>
 		</dialog>
 
 		<!--
@@ -173,17 +183,14 @@
 
 		<!-- Start Questionnaire -->
 		<dialog id="start_questionnaire">
+			<center>
 			<h2>Well done!</h2>
-			<p><strong>Here you will rate each instruction you hear.</strong></p>
-			<p id="youwill"></p>
-			<script>
-				document.getElementById("youwill").innerHTML = "You will be asked if <strong>" + agent_name + "'s</strong> instruction:";
-			</script>
-			<p>1. was unambiguous or ambiguous</p>
-			<p>2. had too little or too much information</p>
-
+			<p>Here you will rate each <strong>instruction</strong> by whether:</p>
+			<p>1. it was <strong>unambiguous</strong> or <strong>ambiguous</strong></p>
+			<p>2. it had <strong>too little</strong> or <strong>too much</strong> information</p>
 			<br>
 			<button id="start_questionnaire_done">Start</button>
+			</center>
 		</dialog>
 
 		<!-- Tell-me-more button -->
@@ -196,14 +203,17 @@
 
 		<!-- Questionnaire, opens after each piece selection -->
 		<dialog id="questionnaire">
+			<center>
 			<h2>Questionnaire</h2>
 			<p><strong>Please rate the instruction you just heard.</strong></p>
+			</center>
 
 			<!-- Clarity -->
 			<p id="instructionwas"></p>
 			<script>
-				document.getElementById("instructionwas").innerHTML = agent_name + "'s instruction was ...";
+				document.getElementById("instructionwas").innerHTML = "<center>" + agent_name + "'s instruction was ...</center>";
 			</script>
+			<center>
 			<label for="clear1">unambiguous</label>&nbsp;
 			<label for="clear1">&nbsp;1<br/>
 				<input type="radio" name="clear" value=1 id="clear1"/>
@@ -227,13 +237,15 @@
 				<input type="radio" name="clear" value=7 id="clear7"/>
 			</label>&nbsp;&nbsp;&nbsp;
 			<label for="clear7">ambiguous</label>
+			</center>
 			<br><br>
 
 			<!-- Information -->
 			<p id="instructionhad"></p>
 			<script>
-				document.getElementById("instructionhad").innerHTML = agent_name + "'s instruction had ... information";
+				document.getElementById("instructionhad").innerHTML = "<center>" + agent_name + "'s instruction had ... information</center>";
 			</script>
+			<center>
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<label for="info1">too little</label>&nbsp;
 			<label for="info1">&nbsp;1<br/>
@@ -258,18 +270,22 @@
 				<input type="radio" name="info" value=7 id="info7"/>
 			</label>&nbsp;&nbsp;&nbsp;
 			<label for="info7">too much</label>
+			</center>
 			<br><br>
 
+			<center>
 			<input type="checkbox" name="task_error" id="task_error">
 			<label for="task_error">&nbsp;Something went wrong (I did not hear the instruction)</label>
 			<br>
 			<button id="questionnaire_done">Submit</button>
+			</center>
 		</dialog>
 
 		<!-- Demographic questionnaire -->
 		<dialog id="demographic">
+			<center>
 			<h2>Almost done!</h2>
-				<p>Thank you for taking part in our study. You completed all tasks.</p>
+				<p>Thank you for taking part in this study. You completed all tasks.</p>
 				<p>To finish, please answer the following questions and click on <strong>Submit</strong>.</p>
 
 				<!-- Age -->
@@ -290,10 +306,11 @@
 				<!-- Language -->
 				<label for="language">Native language:</label>
 				<input id="language" name="language">
-				<br>
+				<br><br>
+				</center>
 
 				<!-- Fluency -->
-				<p>How fluent are you in English?</p>
+				<center><p>How fluent are you in English?</p></center>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<label for="fluent1">limited fluency</label>&nbsp;&nbsp;&nbsp;
 				<label for="fluent1">&nbsp;1<br/>
@@ -323,7 +340,7 @@
 				<!-- Understanding -->
 				<p id="understand"></p>
 				<script>
-					document.getElementById("understand").innerHTML = "It was ... to understand <strong>" + agent_name + "'s</strong> instructions.";
+					document.getElementById("understand").innerHTML = "<center>It was ... to understand <strong>" + agent_name + "'s</strong> instructions.</center>";
 				</script>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<label for="understanding1">difficult</label>&nbsp;&nbsp;&nbsp;
@@ -354,7 +371,7 @@
 				<!-- Complete -->
 				<p id="werecomplete"></p>
 				<script>
-					document.getElementById("werecomplete").innerHTML = "<strong>" + agent_name + "'s</strong> instructions were ...";
+					document.getElementById("werecomplete").innerHTML = "<center><strong>" + agent_name + "'s</strong> instructions were ...</center>";
 				</script>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<label for="complete1">incomplete</label>&nbsp;&nbsp;&nbsp;
@@ -438,7 +455,7 @@
 				<!-- Adaptation -->
 				<p id="wereadapted"></p>
 				<script>
-					document.getElementById("wereadapted").innerHTML = "<strong>" + agent_name + "'s</strong> instructions were <strong>adapted to my information needs</strong>.";
+					document.getElementById("wereadapted").innerHTML = "<center><strong>" + agent_name + "'s</strong> instructions were <strong>adapted to my information needs</strong>.</center>";
 				</script>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<label for="adapted1">not at all</label>&nbsp;&nbsp;&nbsp;
@@ -469,7 +486,7 @@
 				<!-- Likeability 1 -->
 				<p id="pleaserate1"></p>
 				<script>
-					document.getElementById("pleaserate1").innerHTML = "Please rate your impression of <strong>" + agent_name + "</strong> on these scales.";
+					document.getElementById("pleaserate1").innerHTML = "<center>Please rate your impression of <strong>" + agent_name + "</strong> on these scales.</center>";
 				</script>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<label for="like1">dislike</label>&nbsp;&nbsp;&nbsp;
@@ -608,7 +625,7 @@
 				<!-- Intelligence 1 -->
 				<p id="pleaserate2"></p>
 				<script>
-					document.getElementById("pleaserate2").innerHTML = "Please rate your impression of <strong>" + agent_name + "</strong> on these scales.";
+					document.getElementById("pleaserate2").innerHTML = "<center>Please rate your impression of <strong>" + agent_name + "</strong> on these scales.</center>";
 				</script>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<label for="competent1">incompetent</label>&nbsp;&nbsp;&nbsp;
@@ -747,7 +764,7 @@
 				<!-- Complying -->
 				<p id="icomplied"></p>
 				<script>
-					document.getElementById("icomplied").innerHTML = "I complied ... to <strong>" + agent_name + "'s</strong> instructions.";
+					document.getElementById("icomplied").innerHTML = "<center>I complied ... to <strong>" + agent_name + "'s</strong> instructions.</center>";
 				</script>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<label for="comply1">very little</label>&nbsp;&nbsp;&nbsp;
@@ -776,7 +793,7 @@
 				<br><br>
 
 				<!-- Difficulty -->
-				<p>Overal, the task was ...</p>
+				<center><p>Overal, the task was ...</p></center>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<label for="easy1">difficult</label>&nbsp;&nbsp;&nbsp;
 				<label for="easy1">&nbsp;1<br/>
@@ -804,10 +821,13 @@
 				<br><br>
 
 				<!-- Conversational Interface -->
+				<center>
 				<input type="checkbox" id="ci_before" name="ci_before">
 				<label for="ci_before">I have interacted with a conversational interface before (Alexa, Siri, etc).</label>
+				</center>
 				<br><br>
 
+				<center>
 				<p>What device did you use to move your cursor?</p>
 				<input type="radio" name="track_device" value="mouse" id="device_mouse">
 				<label for="device_mouse">mouse</label>
@@ -816,41 +836,51 @@
 				<input type="radio" name="track_device" value="other" id="other">
 				<label for="other">other</label>
 				<input name="other_device" id="other_device">
+				</center>
 				<br>
 
 				<p id="didyoualways"></p>
 				<script>
-					document.getElementById("didyoualways").innerHTML = "Did you always know what <strong>" + agent_name + "</strong> wanted from you?";
+					document.getElementById("didyoualways").innerHTML = "<center>Did you always know what <strong>" + agent_name + "</strong> wanted from you?</center>";
 				</script>
-				<input id="know_want" size="70">
+				<center><input id="know_want" size="70"></center>
 
+				<center>
 				<p>What was the <strong>greatest difficulty</strong> in solving the task?</p>
 				<input id="greatest_difficulty" size="70">
+				</center>
 
 				<p id="whatmost"></p>
 				<script>
-					document.getElementById("whatmost").innerHTML = "What strategy from <strong>" + agent_name + "</strong> helped you the <strong>most</strong> to identify pieces?";
+					document.getElementById("whatmost").innerHTML = "<center>What strategy from <strong>" + agent_name + "</strong> helped you the <strong>most</strong> to identify pieces?</center>";
 				</script>
-				<input id="best_strategy" size="70">
+				<center><input id="best_strategy" size="70"></center>
 
 				<p id="whatleast"></p>
 				<script>
-					document.getElementById("whatleast").innerHTML = "What strategy from <strong>" + agent_name + "</strong> helped you the <strong>least</strong> to identify pieces?";
+					document.getElementById("whatleast").innerHTML = "</center>What strategy from <strong>" + agent_name + "</strong> helped you the <strong>least</strong> to identify pieces?</center>";
 				</script>
-				<input id="worst_strategy" size="70">
+				<center><input id="worst_strategy" size="70"></center>
 
+				<center>
 				<p>Can you guess why we do this study?</p>
 				<input id="why_study" size="70">
+				</center>
 
-				<p>Any comments? (Did something go wrong? Feel free to give feedback!)</p>
+				<center>
+				<p>Any comments? Did something go wrong? Feel free to give feedback!</p>
 				<input id="comments" size="70">
+				</center>
 				<br>
-			<button id="demographic_done">Submit & Finish</button>
+			<center><button id="demographic_done">Submit & Finish</button></center>
 		</dialog>
 
 		<!-- End screen -->
 		<dialog id="endscreen">
+			<center>
 			<h2>Thank you for your participation!</h2>
+			<br><p>If you have any questions, do not hesitate to contact <strong>Dimos Kontogiorgos</strong> at kontogiorgos@uni-potsdam.de.</p><br>
+			</center>
 		</dialog>
 	</div>
 
