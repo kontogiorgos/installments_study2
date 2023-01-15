@@ -778,7 +778,7 @@ $(document).ready(function() {
 		 * Play intro
 		 */
 		audiotest() {
-			let test_file = `../resources/audio/intro${ELEPHANT}.mp3`;
+			let test_file = `../resources/audio/intro${CONDITION}.mp3`;
 			let test_audio = new Audio(test_file);
 			test_audio.oncanplaythrough = (event) => {test_audio.play();};
 		}
