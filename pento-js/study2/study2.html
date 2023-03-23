@@ -14,7 +14,7 @@
 
 <body>
 	<div class="container">
-		<h5>Select the described piece on the left board!<div id="timer"><span style="color:red">00:00</span></div><div id="correct_counter">Correct: <span style="color:green">0</span> / 12</div></h5>
+		<h5>Select the described piece on the board!<div id="timer"><span style="color:red">00:00</span></div><div id="correct_counter">Correct: <span style="color:green">0</span> / 12</div></h5>
 		<hr>
 		<div class="row">
 			<div class="eight columns">
@@ -47,16 +47,16 @@
 			<h2>Welcome to the PENTOMINO study!</h2>
 			<p><center><img src="../resources/img/laptop.png" alt="laptop" width="350" height="160"></center></p>
 			<center><p>You will soon be instructed by an <strong>artificial agent</strong> to pick pentomino objects.<br></p></center>
-			Try to make <strong>as few mistakes as possible</strong> in the task. <strong>You will be paid 1€ more per correct answer.</strong></p>
+			Try to make <strong>as few mistakes as possible</strong> in the task. <strong>You will be paid more for correct answers.</strong></p>
 			<p id="payment"></p>
 			<script>
 				if (CONDITION == 3) {
-					document.getElementById("payment").innerHTML = '<p><center><img src="../resources/img/payment2.png" alt="payment" width="350" height="160"></center></p><center>Every time you ask for <strong>additional assistance (Tell-Me-More button)</strong> you will lose <strong>0.20€</strong>.</center>';
+					document.getElementById("payment").innerHTML = '<p><center><img src="../resources/img/payment2.png" alt="payment" width="350" height="160"></center></p><center>Every time you ask for <strong>additional assistance (Tell-Me-More button)</strong> you will lose <strong>0.2 points</strong>.</center>';
 				} else {
 					document.getElementById("payment").innerHTML = '<p><center><img src="../resources/img/payment1.png" alt="payment" width="200" height="160"></center></p>';
 				}
 			</script>
-			<p>The task will last around <strong>10 minutes</strong> and you will be paid at least <strong>5€</strong> regardless of your performance.</p>
+			<p><center>The task will last around <strong>15 minutes</strong> and you will be reimbursed via <strong>SONA/email</strong>.</center></p>
 			<center><button id="welcome_done">Continue</button></center>
 		</dialog>
 
@@ -112,7 +112,7 @@
 				document.getElementById("willinstruct").innerHTML = "<center>In this study you will assess <strong>" + agent_name + "</strong> instructing you to pick pentomino " +
 				"objects.<br>You can see your time and your score the top right of your screen.</center>";
 			</script>
-			<center><p>It is important that you are fluent in English. The study is voluntary and will last ~10 minutes.<br>
+			<center><p>It is important that you are fluent in English. The study is voluntary and will last ~15 minutes.<br>
 			We collect your mouse movements as well as your responses to the questions provided.<br>
 			The anonymous data will only be used for research purposes and may be shared with other researchers.</p></center>
 			<hr>
